@@ -14,11 +14,14 @@ public final class RandomUtil {
     private static final char[] CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".toCharArray();
     public static final int STRING_DEFAULT_LENGTH = 4;
 
-    static String getRandomStr(){
+    public static String getRandomStr(){
         return getRandomStr(STRING_DEFAULT_LENGTH);
     }
 
-    static String getRandomStr(int len){
+    public static String getRandomStr(int len){
+        if(len < 1){
+            throw new IllegalArgumentException("The parameter value should be greater than 0.");
+        }
         StringBuilder sb = new StringBuilder();
         for(int i=0; i<len; i++){
             Random r = new SecureRandom();
