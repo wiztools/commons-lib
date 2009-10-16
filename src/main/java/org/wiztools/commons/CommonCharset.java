@@ -4,7 +4,7 @@ package org.wiztools.commons;
  *
  * @author subwiz
  */
-public interface Charset{
+public interface CommonCharset{
   public java.nio.charset.Charset US_ASCII = java.nio.charset.Charset.forName("US-ASCII");
   public java.nio.charset.Charset ISO_8859_1 = java.nio.charset.Charset.forName("ISO-8859-1");
   public java.nio.charset.Charset UTF_8 = java.nio.charset.Charset.forName("UTF-8");
