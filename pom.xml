@@ -7,7 +7,12 @@
     <packaging>jar</packaging>
     <version>0.1-SNAPSHOT</version>
     <name>commons-lib</name>
-    <url>http://maven.apache.org</url>
+    <url>http://wiztools.googlecode.com/</url>
+    <scm>
+        <connection>scm:svn:http://wiztools.googlecode.com/svn/commons-lib/trunk/</connection>
+        <developerConnection>scm:svn:https://wiztools.googlecode.com/svn/commons-lib/trunk/</developerConnection>
+        <url>http://code.google.com/p/wiztools/source/browse/</url>
+    </scm>
     <build>
         <plugins>
             <plugin>
@@ -18,13 +23,20 @@
                     <target>1.5</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <tagBase>https://wiztools.googlecode.com/svn/commons-lib/tags</tagBase>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.6</version>
+            <version>4.7</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
