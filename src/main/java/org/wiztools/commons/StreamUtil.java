@@ -32,8 +32,7 @@ public final class StreamUtil {
 
     /**
      * Reads the stream and generates a String content using the charset specified.
-     * Stream will be closed at the end of the operation. Returns null string when
-     * InputStream is null.
+     * Stream will be closed at the end of the operation.
      * @param in InputStream as the input.
      * @param charset The charset to use to create the String object.
      * @return The output String.
@@ -42,9 +41,6 @@ public final class StreamUtil {
     public static String inputStream2String(final InputStream is,
             final Charset charset) throws IOException {
         try{
-            if (is == null) {
-                return "";
-            }
             StringBuilder out = new StringBuilder();
             byte[] b = new byte[4096];
             byte[] savedBytes = new byte[1];
@@ -118,7 +114,7 @@ public final class StreamUtil {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             byte[] buf = new byte[1024*8];
             int len = -1;
-            while((len = is.read(buf))>0){
+            while((len = is.read(buf))!=-1){
                 baos.write(buf, 0, len);
             }
             return baos.toByteArray(); // baos doesn't need close!
