@@ -1,7 +1,9 @@
 package org.wiztools.commons;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.charset.CharsetDecoder;
@@ -86,5 +88,20 @@ public final class StreamUtil {
             }
         }
         return out.toString();
+    }
+
+    public static byte[] inputStream2Bytes(final InputStream is) throws IOException{
+        try{
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            byte[] buf = new byte[1024*8];
+            int len = -1;
+            while((len = is.read(buf))>0){
+                baos.write(buf, 0, len);
+            }
+            return baos.toByteArray(); // baos doesn't need close!
+        }
+        finally{
+            is.close();
+        }
     }
 }
