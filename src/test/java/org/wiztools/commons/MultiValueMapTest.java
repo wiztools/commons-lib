@@ -13,9 +13,9 @@ import static org.junit.Assert.*;
  *
  * @author subwiz
  */
-public class DuplicateKeyMapTest {
+public class MultiValueMapTest {
 
-    public DuplicateKeyMapTest() {
+    public MultiValueMapTest() {
     }
 
     @BeforeClass
@@ -40,8 +40,8 @@ public class DuplicateKeyMapTest {
     @Test
     public void testPut() {
         System.out.println("put");
-        Object key = "lovers";
-        DuplicateKeyMap instance = new DuplicateKeyMap();
+        String key = "lovers";
+        MultiValueMap<String, String> instance = new MultiValueMap<String, String>();
         List expResult = Arrays.asList(new String[]{"Aarthi", "Subhash"});
         instance.put(key, "Aarthi");
         instance.put(key, "Subhash");
