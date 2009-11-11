@@ -13,7 +13,13 @@ public final class HexEncodeUtil {
 
     private HexEncodeUtil(){}
 
-    static String bytesToHex(byte input[]) {
+    /**
+     * This logic is based on the tip published by Jeff Boyle
+     * here: http://www.devx.com/tips/Tip/13540
+     * @param input byte[] input to convert
+     * @return Hex representation of the input
+     */
+    public static String bytesToHex(byte input[]) {
         if (input == null || input.length <= 0) {
             return null;
         }
