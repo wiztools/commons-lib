@@ -11,7 +11,7 @@ public final class XmlEntityEncode {
         String t = input.replaceAll("&", "&amp;");
         t = t.replaceAll("<", "&lt;");
         t = t.replaceAll(">", "&gt;");
-        t = t.replaceAll("\'", "&apos;");
+        t = t.replaceAll("'", "&apos;");
         t = t.replaceAll("\"", "&quot;");
         return t;
     }
