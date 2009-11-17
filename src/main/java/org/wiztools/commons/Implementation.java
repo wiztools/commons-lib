@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * This is a service locator framework.
  * @author subwiz
  */
 public class Implementation {

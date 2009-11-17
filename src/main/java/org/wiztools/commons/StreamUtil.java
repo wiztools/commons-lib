@@ -10,7 +10,7 @@ import java.nio.charset.CharsetDecoder;
 import java.nio.charset.MalformedInputException;
 
 /**
- *
+ * Common operations on java.io.Stream objects.
  * @author subwiz
  */
 public final class StreamUtil {

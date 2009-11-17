@@ -1,7 +1,7 @@
 package org.wiztools.commons;
 
 /**
- *
+ * Utility method to convert byte array to hex-encoded string.
  * @author subwiz
  */
 public final class HexEncodeUtil {

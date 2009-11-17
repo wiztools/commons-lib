@@ -4,7 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- *
+ * Convenience class for common hashing functionality.
  * @author subwiz
  */
 public final class Password {

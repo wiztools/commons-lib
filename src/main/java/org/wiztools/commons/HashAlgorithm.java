@@ -1,7 +1,7 @@
 package org.wiztools.commons;
 
 /**
- *
+ * Hash Algorithm string used by Java Security.
  * @author subwiz
  */
 public interface HashAlgorithm {

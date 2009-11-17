@@ -12,7 +12,7 @@ import java.net.URLConnection;
 import java.nio.charset.Charset;
 
 /**
- *
+ * Common functions using the java.io.File object.
  * @author subwiz
  */
 public final class FileUtil {
