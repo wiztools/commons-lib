@@ -40,7 +40,7 @@ public class PasswordTest {
         System.out.println("md5");
         String password = "subhash";
         String expResult = "0fd6ca6dd27d00b7bed0cf3e6cba6ce2";
-        String result = Password.md5(password);
+        String result = DigestUtil.md5hex(password);
         assertEquals(expResult, result);
     }
 
