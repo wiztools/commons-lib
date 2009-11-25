@@ -11,9 +11,9 @@ import static org.junit.Assert.*;
  *
  * @author subwiz
  */
-public class PasswordTest {
+public class DigestUtilTest {
 
-    public PasswordTest() {
+    public DigestUtilTest() {
     }
 
     @BeforeClass
