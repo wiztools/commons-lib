@@ -29,4 +29,28 @@ public final class StringUtil {
     public static String getNullStrIfNull(final String str) {
         return str == null ? "" : str;
     }
+
+    /**
+     * A method similar to PHP's implode() function (http://php.net/implode)
+     * @param glue The String to glue pieces together.
+     * @param pieces An array of String which needs to be glued.
+     * @return Returns the concatenated string.
+     */
+    public static String implode(final String glue, final String[] pieces){
+        StringBuilder sb = new StringBuilder();
+        final int last = pieces.length;
+        int count = 1;
+        for(String str: pieces){
+            sb.append(str);
+            if(count<last && glue != null){
+                sb.append(glue);
+            }
+            count++;
+        }
+        return sb.toString();
+    }
+
+    public static String implode(final String[] pieces){
+        return implode(null, pieces);
+    }
 }
