@@ -1,5 +1,7 @@
 package org.wiztools.commons;
 
+import java.util.Collection;
+
 /**
  *
  * @author subwiz
@@ -50,7 +52,34 @@ public final class StringUtil {
         return sb.toString();
     }
 
+    /**
+     * A method similar to PHP's implode() function (http://php.net/implode)
+     * @param pieces An array of String which needs to be glued.
+     * @return Returns the concatenated string.
+     */
     public static String implode(final String[] pieces){
         return implode(null, pieces);
+    }
+
+    // An empty String array used for toArray() operation
+    public final static String[] STRING_ARRAY = new String[]{};
+
+    /**
+     * A method similar to PHP's implode() function (http://php.net/implode)
+     * @param glue The String to glue pieces together.
+     * @param pieces A collection of String which needs to be glued.
+     * @return Returns the concatenated string.
+     */
+    public static String implode(final String glue, final Collection<String> pieces){
+        return implode(glue, pieces.toArray(STRING_ARRAY));
+    }
+
+    /**
+     * A method similar to PHP's implode() function (http://php.net/implode)
+     * @param pieces A collection of String which needs to be glued.
+     * @return Returns the concatenated string.
+     */
+    public static String implode(final Collection<String> pieces){
+        return implode(pieces.toArray(STRING_ARRAY));
     }
 }
