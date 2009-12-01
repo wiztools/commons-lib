@@ -11,7 +11,7 @@ public final class DigestUtil {
 
     private DigestUtil(){}
 
-    private static String digest(final byte[] inBytes, final String algo){
+    public static String digest(final byte[] inBytes, final String algo){
         try{
             MessageDigest md = MessageDigest.getInstance(algo);
             md.reset();
@@ -28,48 +28,48 @@ public final class DigestUtil {
     public static String md5hex(final String str){
         return digest(
                 str.getBytes(CommonCharset.UTF_8),
-                HashAlgorithm.MD5);
+                DigestAlgorithm.MD5);
     }
 
     public static String md5hex(final byte[] bytes){
         return digest(
                 bytes,
-                HashAlgorithm.MD5);
+                DigestAlgorithm.MD5);
     }
 
     public static String sha1hex(final String str){
         return digest(
                 str.getBytes(CommonCharset.UTF_8),
-                HashAlgorithm.SHA_1);
+                DigestAlgorithm.SHA_1);
     }
 
     public static String sha1hex(final byte[] bytes){
         return digest(
                 bytes,
-                HashAlgorithm.SHA_1);
+                DigestAlgorithm.SHA_1);
     }
 
     public static String sha256hex(final String str){
         return digest(
                 str.getBytes(CommonCharset.UTF_8),
-                HashAlgorithm.SHA_256);
+                DigestAlgorithm.SHA_256);
     }
 
     public static String sha256hex(final byte[] bytes){
         return digest(
                 bytes,
-                HashAlgorithm.SHA_256);
+                DigestAlgorithm.SHA_256);
     }
 
     public static String sha512hex(final String str){
         return digest(
                 str.getBytes(CommonCharset.UTF_8),
-                HashAlgorithm.SHA_512);
+                DigestAlgorithm.SHA_512);
     }
 
     public static String sha512hex(final byte[] bytes){
         return digest(
                 bytes,
-                HashAlgorithm.SHA_512);
+                DigestAlgorithm.SHA_512);
     }
 }

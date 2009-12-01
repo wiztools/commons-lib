@@ -13,4 +13,6 @@ public interface CommonCharset{
   public Charset UTF_16BE = Charset.forName("UTF-16BE");
   public Charset UTF_16LE = Charset.forName("UTF-16LE");
   public Charset UTF_16 = Charset.forName("UTF-16");
+
+  public Charset[] ALL = new Charset[]{US_ASCII, ISO_8859_1, UTF_8, UTF_16BE, UTF_16LE, UTF_16};
 }
