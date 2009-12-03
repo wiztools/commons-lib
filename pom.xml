@@ -1,17 +1,16 @@
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.wiztools.commons</groupId>
     <artifactId>commons-lib</artifactId>
     <packaging>jar</packaging>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1.0-preview1</version>
     <name>commons-lib</name>
     <url>http://wiztools.googlecode.com/</url>
     <scm>
-        <connection>scm:svn:http://wiztools.googlecode.com/svn/commons-lib/trunk/</connection>
-        <developerConnection>scm:svn:https://wiztools.googlecode.com/svn/commons-lib/trunk/</developerConnection>
-        <url>http://code.google.com/p/wiztools/source/browse/</url>
+        <connection>scm:svn:http://wiztools.googlecode.com/svn/commons-lib/tags/commons-lib-0.1.0-preview1</connection>
+        <developerConnection>scm:svn:https://wiztools.googlecode.com/svn/commons-lib/tags/commons-lib-0.1.0-preview1</developerConnection>
+        <url>scm:svn:https://wiztools.googlecode.com/svn/commons-lib/tags/commons-lib-0.1.0-preview1</url>
     </scm>
     <build>
         <plugins>
