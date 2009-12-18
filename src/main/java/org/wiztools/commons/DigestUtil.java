@@ -27,7 +27,7 @@ public final class DigestUtil {
 
     public static String md5hex(final String str){
         return digest(
-                str.getBytes(CommonCharset.UTF_8),
+                str.getBytes(Charsets.UTF_8),
                 DigestAlgorithm.MD5);
     }
 
@@ -39,7 +39,7 @@ public final class DigestUtil {
 
     public static String sha1hex(final String str){
         return digest(
-                str.getBytes(CommonCharset.UTF_8),
+                str.getBytes(Charsets.UTF_8),
                 DigestAlgorithm.SHA_1);
     }
 
@@ -51,7 +51,7 @@ public final class DigestUtil {
 
     public static String sha256hex(final String str){
         return digest(
-                str.getBytes(CommonCharset.UTF_8),
+                str.getBytes(Charsets.UTF_8),
                 DigestAlgorithm.SHA_256);
     }
 
@@ -63,7 +63,7 @@ public final class DigestUtil {
 
     public static String sha512hex(final String str){
         return digest(
-                str.getBytes(CommonCharset.UTF_8),
+                str.getBytes(Charsets.UTF_8),
                 DigestAlgorithm.SHA_512);
     }
 

@@ -43,7 +43,7 @@ public class FileUtilTest {
     public void testGetContentAsString() throws Exception {
         System.out.println("getContentAsString");
         File f = File.createTempFile("wiztools", "wiz");
-        Charset charset = CommonCharset.ISO_8859_1;
+        Charset charset = Charsets.ISO_8859_1;
         FileUtil.writeString(f, TEST_STR, charset);
         String expResult = TEST_STR;
         String result = FileUtil.getContentAsString(f, charset);

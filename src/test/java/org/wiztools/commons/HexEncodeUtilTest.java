@@ -38,7 +38,7 @@ public class HexEncodeUtilTest {
     @Test
     public void testByteArrayToHexString() {
         System.out.println("byteArrayToHexString");
-        byte[] input = "()*!~`'\"fghfgh123098^&#@".getBytes(CommonCharset.UTF_8);
+        byte[] input = "()*!~`'\"fghfgh123098^&#@".getBytes(Charsets.UTF_8);
         String expResult = "28292a217e6027226667686667683132333039385e262340";
         String result = HexEncodeUtil.bytesToHex(input);
         assertEquals(expResult, result);

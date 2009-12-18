@@ -6,7 +6,7 @@ import java.nio.charset.Charset;
  * Defines common charsets supported in all Java platforms.
  * @author subwiz
  */
-public interface CommonCharset{
+public interface Charsets{
   public Charset US_ASCII =  Charset.forName("US-ASCII");
   public Charset ISO_8859_1 = Charset.forName("ISO-8859-1");
   public Charset UTF_8 = Charset.forName("UTF-8");

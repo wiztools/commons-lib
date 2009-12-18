@@ -37,7 +37,7 @@ public class StreamUtilTest {
     }
 
     private final String TEST_STR = "áàâæ";
-    private final Charset TEST_CHARSET = CommonCharset.ISO_8859_1;
+    private final Charset TEST_CHARSET = Charsets.ISO_8859_1;
 
     /**
      * Test of inputStream2String method, of class StreamUtil.
