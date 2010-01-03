@@ -8,8 +8,8 @@
     <name>commons-lib</name>
     <url>http://wiztools.googlecode.com/</url>
     <scm>
-        <connection>scm:svn:http://wiztools.googlecode.com/svn/commons-lib/trunk/</connection>
-        <developerConnection>scm:svn:https://wiztools.googlecode.com/svn/commons-lib/trunk/</developerConnection>
+        <connection>scm:hg:http://wiztools-commons-lib.googlecode.com/hg</connection>
+        <developerConnection>scm:hg:https://wiztools-commons-lib.googlecode.com/hg</developerConnection>
         <url>http://code.google.com/p/wiztools/source/browse/</url>
     </scm>
     <build>
@@ -47,13 +47,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <configuration>
-                    <tagBase>https://wiztools.googlecode.com/svn/commons-lib/tags</tagBase>
-                </configuration>
             </plugin>
         </plugins>
     </build>
