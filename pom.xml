@@ -13,6 +13,7 @@
         <url>http://code.google.com/p/wiztools/source/browse/</url>
     </scm>
     <build>
+        <finalName>wiztools-commons-lib</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
