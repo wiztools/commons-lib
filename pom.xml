@@ -6,11 +6,11 @@
     <packaging>jar</packaging>
     <version>0.1.0-SNAPSHOT</version>
     <name>commons-lib</name>
-    <url>http://wiztools.googlecode.com/</url>
+    <url>http://wiztools-commons-lib.googlecode.com/</url>
     <scm>
         <connection>scm:hg:http://wiztools-commons-lib.googlecode.com/hg</connection>
         <developerConnection>scm:hg:https://wiztools-commons-lib.googlecode.com/hg</developerConnection>
-        <url>http://code.google.com/p/wiztools/source/browse/</url>
+        <url>http://code.google.com/p/wiztools-commons-lib/source/browse/</url>
     </scm>
     <build>
         <finalName>wiztools-commons-lib-${project.version}</finalName>
