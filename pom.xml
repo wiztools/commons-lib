@@ -4,7 +4,7 @@
     <groupId>org.wiztools.commons</groupId>
     <artifactId>commons-lib</artifactId>
     <packaging>jar</packaging>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.1.0-preview2</version>
     <name>commons-lib</name>
     <url>http://wiztools.googlecode.com/</url>
     <scm>

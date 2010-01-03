@@ -10,10 +10,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * This is a service locator framework.
+ * This is a service locator framework. The framework reads from the property
+ * file `wiztools-service-locator.properties'.
  * @author subwiz
  */
 public class Implementation {
+
+    private static final String PROP_NAME = "wiztools-service-locator.properties";
 
     private static final Logger LOG = Logger.getLogger(Implementation.class.getName());
         /**
@@ -24,7 +27,7 @@ public class Implementation {
     private static Properties props = new Properties();
     static{
         try{
-            Enumeration<URL> e = Implementation.class.getClassLoader().getResources("wiztools-service-locator.properties");
+            Enumeration<URL> e = Implementation.class.getClassLoader().getResources(PROP_NAME);
             while(e.hasMoreElements()){
                 URL url = e.nextElement();
                 URLConnection con = url.openConnection();
