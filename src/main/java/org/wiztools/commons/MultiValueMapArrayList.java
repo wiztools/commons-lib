@@ -17,7 +17,7 @@ public class MultiValueMapArrayList<K, V> implements MultiValueMap<K, V>{
 
     private Map<K, List<V>> map = new HashMap<K, List<V>>();
 
-    public List<V> put(K key, V value){
+    public Collection<V> put(K key, V value){
         List<V> l = map.get(key);
         if(l == null){
             l = new ArrayList<V>();
@@ -26,7 +26,7 @@ public class MultiValueMapArrayList<K, V> implements MultiValueMap<K, V>{
         return map.put(key, l);
     }
 
-    public List<V> get(K key){
+    public Collection<V> get(K key){
         return map.get(key);
     }
 
@@ -58,7 +58,7 @@ public class MultiValueMapArrayList<K, V> implements MultiValueMap<K, V>{
         return false;
     }
 
-    public List<V> remove(K key) {
+    public Collection<V> remove(K key) {
         return map.remove(key);
     }
 

@@ -1,7 +1,6 @@
 package org.wiztools.commons;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -16,15 +15,15 @@ public interface MultiValueMap<K, V> {
 
     boolean containsValue(V value);
 
-    List<V> get(K key);
+    Collection<V> get(K key);
 
     boolean isEmpty();
 
     Set<K> keySet();
 
-    List<V> put(K key, V value);
+    Collection<V> put(K key, V value);
 
-    List<V> remove(K key);
+    Collection<V> remove(K key);
 
     int size();
 
