@@ -41,7 +41,7 @@ public class MultiValueMapTest {
     public void testPut() {
         System.out.println("put");
         String key = "lovers";
-        MultiValueMap<String, String> instance = new MultiValueMap<String, String>();
+        MultiValueMap<String, String> instance = new MultiValueMapArrayList<String, String>();
         List expResult = Arrays.asList(new String[]{"Aarthi", "Subhash"});
         instance.put(key, "Aarthi");
         instance.put(key, "Subhash");

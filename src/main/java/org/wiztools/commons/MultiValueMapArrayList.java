@@ -13,7 +13,7 @@ import java.util.Set;
  * particular key.
  * @author subwiz
  */
-public class MultiValueMap<K, V>{
+public class MultiValueMapArrayList<K, V> implements MultiValueMap<K, V>{
 
     private Map<K, List<V>> map = new HashMap<K, List<V>>();
 

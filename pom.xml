@@ -5,7 +5,7 @@
     <artifactId>wiztools-commons-lib</artifactId>
     <packaging>jar</packaging>
     <version>0.1.0-SNAPSHOT</version>
-    <name>commons-lib</name>
+    <name>wiztools-commons-lib</name>
     <url>http://wiztools-commons-lib.googlecode.com/</url>
     <scm>
         <connection>scm:hg:http://wiztools-commons-lib.googlecode.com/hg</connection>
