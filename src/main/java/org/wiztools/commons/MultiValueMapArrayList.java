@@ -75,4 +75,25 @@ public class MultiValueMapArrayList<K, V> implements MultiValueMap<K, V>{
         return values;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final MultiValueMapArrayList<K, V> other = (MultiValueMapArrayList<K, V>) obj;
+        if (this.map != other.map && (this.map == null || !this.map.equals(other.map))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 47 * hash + (this.map != null ? this.map.hashCode() : 0);
+        return hash;
+    }
 }
