@@ -48,4 +48,13 @@ public class MultiValueMapTest {
         assertEquals(expResult, instance.get(key));
     }
 
+    @Test
+    public void testMultiValues(){
+        MultiValueMap<String, String> instance = new MultiValueMapArrayList<String, String>();
+        instance.put("a", "a");
+        instance.put("a", "b");
+        instance.put("a", "a");
+        System.out.println("\n\nMultivalue map:\n" + instance);
+    }
+
 }

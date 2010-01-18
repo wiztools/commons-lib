@@ -96,4 +96,10 @@ public class MultiValueMapArrayList<K, V> implements MultiValueMap<K, V>{
         hash = 47 * hash + (this.map != null ? this.map.hashCode() : 0);
         return hash;
     }
+
+    @Override
+    public String toString() {
+        return map.toString();
+    }
+
 }
