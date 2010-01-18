@@ -1,7 +1,7 @@
 package org.wiztools.commons;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.Collection;
+import java.util.Set;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -13,9 +13,9 @@ import static org.junit.Assert.*;
  *
  * @author subwiz
  */
-public class MultiValueMapTest {
+public class MultiValueMapArrayListTest {
 
-    public MultiValueMapTest() {
+    public MultiValueMapArrayListTest() {
     }
 
     @BeforeClass
@@ -34,17 +34,14 @@ public class MultiValueMapTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of put method, of class DuplicateKeyMap.
-     */
     @Test
-    public void testPut() {
-        System.out.println("put");
-        String key = "lovers";
+    public void testMultiValues(){
+        // To test that same key-value duplication is allowed:
         MultiValueMap<String, String> instance = new MultiValueMapArrayList<String, String>();
-        List expResult = Arrays.asList(new String[]{"Aarthi", "Subhash"});
-        instance.put(key, "Aarthi");
-        instance.put(key, "Subhash");
-        assertEquals(expResult, instance.get(key));
+        instance.put("a", "a");
+        instance.put("a", "a");
+        instance.put("a", "b");
+        assertEquals(instance.values().size(), 3);
     }
+
 }
