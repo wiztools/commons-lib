@@ -1,5 +1,7 @@
 package org.wiztools.commons;
 
+import java.util.Collection;
+import java.util.Set;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -11,9 +13,9 @@ import static org.junit.Assert.*;
  *
  * @author subwiz
  */
-public class MultiValueMapArrayListTest {
+public class MultiValueMapLinkedHashSetTest {
 
-    public MultiValueMapArrayListTest() {
+    public MultiValueMapLinkedHashSetTest() {
     }
 
     @BeforeClass
@@ -35,11 +37,11 @@ public class MultiValueMapArrayListTest {
     @Test
     public void testMultiValues(){
         // To test that same key-value duplication is allowed:
-        MultiValueMap<String, String> instance = new MultiValueMapArrayList<String, String>();
+        MultiValueMap<String, String> instance = new MultiValueMapLinkedHashSet<String, String>();
         instance.put("a", "a");
         instance.put("a", "a");
         instance.put("a", "b");
-        assertEquals(instance.values().size(), 3);
+        assertEquals(instance.values().size(), 2);
     }
 
 }
