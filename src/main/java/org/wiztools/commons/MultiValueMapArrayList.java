@@ -80,11 +80,17 @@ public class MultiValueMapArrayList<K, V> implements MultiValueMap<K, V>{
         if (obj == null) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+        if (!(obj instanceof MultiValueMap)) {
             return false;
         }
-        final MultiValueMapArrayList<K, V> other = (MultiValueMapArrayList<K, V>) obj;
-        if (this.map != other.map && (this.map == null || !this.map.equals(other.map))) {
+        final MultiValueMap<K, V> other = (MultiValueMap<K, V>) obj;
+        
+        if (this.keySet() != other.keySet() && (this.keySet() == null || !this.keySet().equals(other.keySet()))) {
+            return false;
+        }
+        final Collection thisValues = this.values();
+        final Collection otherValues = other.values();
+        if (thisValues != otherValues && (thisValues == null || !thisValues.equals(otherValues))) {
             return false;
         }
         return true;

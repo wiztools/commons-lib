@@ -78,11 +78,14 @@ public class MultiValueMapLinkedHashSet<K, V> implements MultiValueMap<K, V> {
         if (obj == null) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+        if (!(obj instanceof MultiValueMap)) {
             return false;
         }
-        final MultiValueMapLinkedHashSet<K, V> other = (MultiValueMapLinkedHashSet<K, V>) obj;
-        if (this.map != other.map && (this.map == null || !this.map.equals(other.map))) {
+        final MultiValueMap<K, V> other = (MultiValueMap<K, V>) obj;
+        if (this.keySet() != other.keySet() && (this.keySet() == null || !this.keySet().equals(other.keySet()))) {
+            return false;
+        }
+        if (this.values() != other.values() && (this.values() == null || !this.values().equals(other.values()))) {
             return false;
         }
         return true;
@@ -90,8 +93,8 @@ public class MultiValueMapLinkedHashSet<K, V> implements MultiValueMap<K, V> {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 47 * hash + (this.map != null ? this.map.hashCode() : 0);
+        int hash = 5;
+        hash = 71 * hash + (this.map != null ? this.map.hashCode() : 0);
         return hash;
     }
 
