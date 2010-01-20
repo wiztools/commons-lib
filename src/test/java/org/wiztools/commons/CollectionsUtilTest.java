@@ -48,4 +48,10 @@ public class CollectionsUtilTest {
         assertEquals(expResult, result);
     }
 
+    @Test
+    public void testEqualEmptyMultiValueMap(){
+        MultiValueMap<String, String> m = new MultiValueMapLinkedHashSet<String, String>();
+        assertEquals(m, CollectionsUtil.EMPTY_MULTI_VALUE_MAP);
+        assertEquals(CollectionsUtil.EMPTY_MULTI_VALUE_MAP, m);
+    }
 }

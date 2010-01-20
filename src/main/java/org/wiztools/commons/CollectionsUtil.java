@@ -14,7 +14,7 @@ public final class CollectionsUtil {
     public static final MultiValueMap EMPTY_MULTI_VALUE_MAP = new MultiValueMap() {
 
         public void clear() {
-            throw new UnsupportedOperationException("Not supported yet.");
+            throw new UnsupportedOperationException();
         }
 
         public boolean containsKey(Object key) {
@@ -38,11 +38,11 @@ public final class CollectionsUtil {
         }
 
         public Collection put(Object key, Object value) {
-            throw new UnsupportedOperationException("Not supported yet.");
+            throw new UnsupportedOperationException();
         }
 
         public Collection remove(Object key) {
-            throw new UnsupportedOperationException("Not supported yet.");
+            throw new UnsupportedOperationException();
         }
 
         public int size() {
@@ -51,6 +51,20 @@ public final class CollectionsUtil {
 
         public Collection values() {
             return Collections.EMPTY_LIST;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if(obj == null){return false;}
+            if(!(obj instanceof MultiValueMap)){return false;}
+            MultiValueMap other = (MultiValueMap) obj;
+            if(other.size()!=0){return false;}
+            return true;
+        }
+
+        @Override
+        public int hashCode() {
+            return super.hashCode();
         }
     };
 
