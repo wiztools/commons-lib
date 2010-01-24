@@ -1,8 +1,12 @@
+/*
+ * Copyright WizTools.org
+ * Licensed under the Apache License, Version 2.0:
+ * http://www.apache.org/licenses/LICENSE-2.0
+ */
 package org.wiztools.commons;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**

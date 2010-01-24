@@ -1,3 +1,8 @@
+/*
+ * Copyright WizTools.org
+ * Licensed under the Apache License, Version 2.0:
+ * http://www.apache.org/licenses/LICENSE-2.0
+ */
 package org.wiztools.commons;
 
 import java.io.File;
@@ -6,7 +11,6 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
