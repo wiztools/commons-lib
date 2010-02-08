@@ -39,14 +39,15 @@ public final class DateUtil {
         return SDF_ISO_DATE.format(date) + "T" + SDF_ISO_TIME.format(date);
     }
 
+    private static final Pattern PATTERN_ISO_DATE = Pattern.compile("([0-9]{4})-([0-9]{2})-([0-9]{2})");
+
     /**
      * Returns java.util.Date object for the ISO 8601 formatted String yyyy-MM-dd.
      * @param dateStr
      * @return
      */
     public static Date getFromISODateString(final String dateStr){
-        Pattern p = Pattern.compile("([0-9]{4})-([0-9]{2})-([0-9]{2})");
-        Matcher m = p.matcher(dateStr);
+        Matcher m = PATTERN_ISO_DATE.matcher(dateStr);
         if(m.matches()){
             int year = Integer.parseInt(m.group(1));
             int month = Integer.parseInt(m.group(2));
