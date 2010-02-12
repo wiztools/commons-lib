@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.Set;
 
 /**
- *
+ * An interface defining a Map construct which supports multiple-values per key.
  * @author subwiz
  */
 public interface MultiValueMap<K, V> {

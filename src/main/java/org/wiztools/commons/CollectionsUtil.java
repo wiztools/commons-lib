@@ -75,6 +75,13 @@ public final class CollectionsUtil {
         }
     };
 
+    /**
+     * Returns an unmodifiable version of the MultiValueMap.
+     * @param <K>
+     * @param <V>
+     * @param map
+     * @return Returns an unmodifiable version of the MultiValueMap.
+     */
     public static final <K, V> MultiValueMap<K, V> unmodifiableMultiValueMap(
             final MultiValueMap<K, V> map) {
         if (map == null) {
@@ -169,6 +176,12 @@ public final class CollectionsUtil {
         };
     }
 
+    /**
+     * Accepts a varargs argument of type T, and returns a java.util.List representation of them.
+     * @param <T>
+     * @param objs
+     * @return A List representation of all the varargs.
+     */
     public static <T> List<T> asList(T ... objs){
         List<T> l = new ArrayList<T>();
         for(T t: objs){
