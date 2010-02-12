@@ -5,6 +5,7 @@
  */
 package org.wiztools.commons;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -166,5 +167,13 @@ public final class CollectionsUtil {
                 return map.toString();
             }
         };
+    }
+
+    public static <T> List<T> asList(T ... objs){
+        List<T> l = new ArrayList<T>();
+        for(T t: objs){
+            l.add(t);
+        }
+        return l;
     }
 }

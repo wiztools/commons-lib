@@ -5,6 +5,8 @@
  */
 package org.wiztools.commons;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -58,5 +60,15 @@ public class CollectionsUtilTest {
         MultiValueMap<String, String> m = new MultiValueMapLinkedHashSet<String, String>();
         assertEquals(m, CollectionsUtil.EMPTY_MULTI_VALUE_MAP);
         assertEquals(CollectionsUtil.EMPTY_MULTI_VALUE_MAP, m);
+    }
+
+    @Test
+    public void testAsList(){
+        List<String> expResult = new ArrayList<String>();
+        expResult.add("Aarthi");
+        expResult.add("Subhash");
+
+        List<String> result = CollectionsUtil.asList("Aarthi", "Subhash");
+        assertEquals(expResult, result);
     }
 }
