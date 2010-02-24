@@ -58,7 +58,7 @@ public abstract class AbstractExpiryCollection<T> implements ExpiryCollection<T>
 
     // Constructor:
     public AbstractExpiryCollection(final long cleanerThreadIntervalInMilliSecond) {
-        new Thread() {
+        final Thread t = new Thread() {
             @Override
             public void run() {
                 try{
@@ -79,7 +79,9 @@ public abstract class AbstractExpiryCollection<T> implements ExpiryCollection<T>
                 getData().removeAll(toRemove);
                 lock.unlock();
             }
-        }.start();
+        };
+        t.setDaemon(true);
+        t.start();
     }
 
     @Override
