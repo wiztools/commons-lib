@@ -5,7 +5,6 @@
  */
 package org.wiztools.commons;
 
-import java.util.Iterator;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -39,11 +38,11 @@ public class ExpiryHashSetTest {
     }
 
     /**
-     * Test of add method, of class ExpiryHashSet.
+     * Test of add method, of class AbstractExpiryCollection.
      */
     @Test
     public void testTiming() {
-        ExpiryHashSet<String> s = new ExpiryHashSet<String>(50);
+        ExpiryCollection<String> s = new ExpiryHashSet<String>(50);
 
         final String data = "Aarthi";
         s.add(data, System.currentTimeMillis() + 30);
