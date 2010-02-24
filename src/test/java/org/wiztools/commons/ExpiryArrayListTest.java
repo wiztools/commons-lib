@@ -5,7 +5,6 @@
  */
 package org.wiztools.commons;
 
-import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.After;

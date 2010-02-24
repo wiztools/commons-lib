@@ -27,14 +27,14 @@ public interface ExpiryCollection<T> extends Iterable<T> {
     int size();
 
     /**
-     * Before running sequence of operations on the collection (like iterating it),
-     * it is recommended to acquire the acquire so that the cleaner thread does not
+     * Before running sequence of operations on the collection (like iterating, adding element, etc.),
+     * it is recommended to acquire the lock so that the cleaner thread does not
      * run in-between the operation.
      */
     void acquire();
 
     /**
-     * Whenever acquire is acquired, make sure to release it (preferably in finally
+     * Whenever lock is acquired, make sure to release it (preferably in finally
      * block).
      */
     void release();
