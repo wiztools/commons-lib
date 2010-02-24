@@ -45,8 +45,10 @@ public class ExpiryHashSetTest {
         ExpiryCollection<String> s = new ExpiryHashSet<String>(50);
 
         final String data = "Aarthi";
+        s.acquire();
         s.add(data, System.currentTimeMillis() + 30);
         assertEquals(s.contains(data), true);
+        s.release();
 
         try{
             Thread.sleep(60);
@@ -54,7 +56,10 @@ public class ExpiryHashSetTest {
         catch(InterruptedException ex){
             ex.printStackTrace();
         }
+
+        s.acquire();
         assertEquals(s.contains(data), false);
+        s.release();
     }
 
 }

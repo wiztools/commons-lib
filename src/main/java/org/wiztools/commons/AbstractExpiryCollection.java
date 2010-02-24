@@ -108,12 +108,12 @@ public abstract class AbstractExpiryCollection<T> implements ExpiryCollection<T>
     }
 
     @Override
-    public void lock() {
+    public void acquire() {
         lock.lock();
     }
 
     @Override
-    public void unlock() {
+    public void release() {
         lock.unlock();
     }
 
