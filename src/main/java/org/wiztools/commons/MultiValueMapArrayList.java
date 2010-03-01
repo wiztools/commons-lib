@@ -7,7 +7,7 @@ package org.wiztools.commons;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -20,7 +20,7 @@ import java.util.Set;
  */
 public class MultiValueMapArrayList<K, V> implements MultiValueMap<K, V>{
 
-    private Map<K, List<V>> map = new HashMap<K, List<V>>();
+    private Map<K, List<V>> map = new LinkedHashMap<K, List<V>>();
 
     public Collection<V> put(K key, V value){
         List<V> l = map.get(key);

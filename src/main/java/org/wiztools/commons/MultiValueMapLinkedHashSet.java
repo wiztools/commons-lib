@@ -7,7 +7,7 @@ package org.wiztools.commons;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -18,7 +18,7 @@ import java.util.Set;
  * @author subwiz
  */
 public class MultiValueMapLinkedHashSet<K, V> implements MultiValueMap<K, V> {
-    private Map<K, Set<V>> map = new HashMap<K, Set<V>>();
+    private Map<K, Set<V>> map = new LinkedHashMap<K, Set<V>>();
 
     public Collection<V> put(K key, V value){
         Set<V> l = map.get(key);
