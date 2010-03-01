@@ -55,17 +55,23 @@ public abstract class AbstractExpiryCollection<T> implements ExpiryCollection<T>
     public abstract Collection<AbstractExpiryCollection.Encp> getData();
 
     private final Lock lock = new ReentrantLock();
+    private final Thread t;
 
     // Constructor:
     public AbstractExpiryCollection(final long cleanerThreadIntervalInMilliSecond) {
-        final Thread t = new Thread() {
+        t = new Thread() {
             @Override
             public void run() {
                 try{
                     Thread.sleep(cleanerThreadIntervalInMilliSecond);
                 }
                 catch(InterruptedException ex){
-                    // do nothing!
+                    // quit thread!
+                    return;
+                }
+
+                if(isInterrupted()){
+                    return;
                 }
 
                 lock.lock();
@@ -117,6 +123,11 @@ public abstract class AbstractExpiryCollection<T> implements ExpiryCollection<T>
     @Override
     public void release() {
         lock.unlock();
+    }
+
+    @Override
+    public void shutdown(){
+        t.interrupt();
     }
 
     @Override

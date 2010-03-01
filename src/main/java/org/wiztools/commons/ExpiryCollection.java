@@ -39,4 +39,9 @@ public interface ExpiryCollection<T> extends Iterable<T> {
      */
     void release();
 
+    /**
+     * Call to this method will send a interrupt signal to the cleaner thread and
+     * make it quit. Call this method when you are done with the this collection.
+     */
+    void shutdown();
 }
