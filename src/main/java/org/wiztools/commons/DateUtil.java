@@ -62,4 +62,42 @@ public final class DateUtil {
             throw new IllegalArgumentException("Date string not in correct format!");
         }
     }
+
+    private static Date getDatePlus(final int unit, final Date date, final int quantity) {
+        Calendar c = Calendar.getInstance();
+        c.clear();
+        c.setTime(date);
+        c.add(unit, quantity);
+        return c.getTime();
+    }
+
+    /**
+     * Adds the number of days to the date and returns the new Date instance.
+     * @param date Input date.
+     * @param months Number of days to add.
+     * @return Computed date.
+     */
+    public static Date getDatePlusDays(final Date date, final int days){
+        return getDatePlus(Calendar.DATE, date, days);
+    }
+
+    /**
+     * Adds the number of months to the date and returns the new Date instance.
+     * @param date Input date.
+     * @param months Number of months to add.
+     * @return Computed date.
+     */
+    public static Date getDatePlusMonths(final Date date, final int months){
+        return getDatePlus(Calendar.MONTH, date, months);
+    }
+
+    /**
+     * Adds the number of years to the date and returns the new Date instance.
+     * @param date Input date.
+     * @param years Number of years to add.
+     * @return Computed date.
+     */
+    public static Date getDatePlusYears(final Date date, final int years){
+        return getDatePlus(Calendar.YEAR, date, years);
+    }
 }

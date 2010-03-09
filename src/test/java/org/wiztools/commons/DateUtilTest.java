@@ -5,6 +5,7 @@
  */
 package org.wiztools.commons;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import org.junit.After;
@@ -93,4 +94,18 @@ public class DateUtilTest {
         assertEquals(expResult, result);
     }
 
+    @Test
+    public void testGetDatePlusDays() {
+        System.out.println("getDatePlusDays");
+        
+        Calendar c = Calendar.getInstance();
+        c.clear();
+        c.set(Calendar.YEAR, 1979);
+        c.set(Calendar.MONTH, 1); // 1 means Feb.
+        c.set(Calendar.DATE, 15);
+
+        Date date = DateUtil.getDatePlusDays(c.getTime(), 5);
+
+        assertEquals(new SimpleDateFormat("dd-MM-yyyy").format(date), "20-02-1979");
+    }
 }
