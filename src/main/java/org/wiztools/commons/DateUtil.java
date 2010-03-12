@@ -5,6 +5,7 @@
  */
 package org.wiztools.commons;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -99,5 +100,64 @@ public final class DateUtil {
      */
     public static Date getDatePlusYears(final Date date, final int years){
         return getDatePlus(Calendar.YEAR, date, years);
+    }
+
+    // Date Parsing using common pattern:
+    private static final Pattern p1 = Pattern.compile("[0-9]{1,2}-[0-9]{1,2}-[0-9]{2}");
+    private static final SimpleDateFormat sdf_p1 = new SimpleDateFormat("dd-MM-yy");
+
+    private static final Pattern p2 = Pattern.compile("[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}");
+    private static final SimpleDateFormat sdf_p2 = new SimpleDateFormat("dd-MM-yyyy");
+
+    private static final Pattern p3 = Pattern.compile("[0-9]{1,2}/[0-9]{1,2}/[0-9]{2}");
+    private static final SimpleDateFormat sdf_p3 = new SimpleDateFormat("dd/MM/yy");
+
+    private static final Pattern p4 = Pattern.compile("[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}");
+    private static final SimpleDateFormat sdf_p4 = new SimpleDateFormat("dd/MM/yyyy");
+
+    private static final Pattern p5 = Pattern.compile("[A-Za-z]{3} [0-9]{1,2}, [0-9]{4}");
+    private static final SimpleDateFormat sdf_p5 = new SimpleDateFormat("MMM dd, yyyy");
+
+    private static final Pattern p6 = Pattern.compile("[A-Za-z]{3} [0-9]{1,2} [0-9]{4}");
+    private static final SimpleDateFormat sdf_p6 = new SimpleDateFormat("MMM dd yyyy");
+
+    private static final Pattern p7 = Pattern.compile("[0-9]{4}-[0-9]{2}-[0-9]{2}");
+    private static final SimpleDateFormat sdf_p7 = new SimpleDateFormat("yyyy-MM-dd");
+
+    /**
+     * Tries to match common patterns by which date is mentioned, and returns a Date object.
+     * @param dateStr The date in common pattern.
+     * @return The java.util.Date object constructed by parsing the input string.
+     * @throws ParseException Thrown when not able to parse the date string.
+     */
+    public static Date getDateFromString(final String dateStr) throws ParseException{
+        SimpleDateFormat sdf = null;
+        if(p1.matcher(dateStr).matches()){
+            sdf = sdf_p1;
+        }
+        else if(p2.matcher(dateStr).matches()){
+            sdf = sdf_p2;
+        }
+        else if(p3.matcher(dateStr).matches()){
+            sdf = sdf_p3;
+        }
+        else if(p4.matcher(dateStr).matches()){
+            sdf = sdf_p4;
+        }
+        else if(p5.matcher(dateStr).matches()){
+            sdf = sdf_p5;
+        }
+        else if(p6.matcher(dateStr).matches()){
+            sdf = sdf_p6;
+        }
+        else if(p7.matcher(dateStr).matches()){
+            sdf = sdf_p7;
+        }
+
+        if(sdf != null){
+            return sdf.parse(dateStr);
+        }
+
+        throw new ParseException(dateStr + " does not match any defined pattern!", 0);
     }
 }

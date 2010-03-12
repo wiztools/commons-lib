@@ -108,4 +108,16 @@ public class DateUtilTest {
 
         assertEquals(new SimpleDateFormat("dd-MM-yyyy").format(date), "20-02-1979");
     }
+
+    @Test
+    public void testGetDateFromString() throws Exception {
+        Date d = DateUtil.getDateFromString("jan 1, 2010");
+        assertEquals(new SimpleDateFormat("dd-MM-yyyy").format(d), "01-01-2010");
+
+        d = DateUtil.getDateFromString("1-1-2010");
+        assertEquals(new SimpleDateFormat("dd-MM-yyyy").format(d), "01-01-2010");
+
+        d = DateUtil.getDateFromString("1/1/10");
+        assertEquals(new SimpleDateFormat("dd-MM-yyyy").format(d), "01-01-2010");
+    }
 }
