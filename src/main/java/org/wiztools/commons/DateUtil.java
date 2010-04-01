@@ -160,4 +160,8 @@ public final class DateUtil {
 
         throw new ParseException(dateStr + " does not match any defined pattern!", 0);
     }
+
+    public static Date now(){
+        return new Date();
+    }
 }
