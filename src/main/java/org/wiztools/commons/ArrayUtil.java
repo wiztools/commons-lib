@@ -190,4 +190,81 @@ public final class ArrayUtil {
 
         return out;
     }
+
+    /**
+     * Reverses the contents of the array.
+     * @param <T>
+     * @param arr The input array of objects.
+     */
+    public static <T> void reverse(T[] arr) {
+        for(int left=0, right=arr.length-1; left < right; left++, right--) {
+            final T tmp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = tmp;
+        }
+    }
+
+    public static void reverse(boolean[] arr) {
+        for(int left=0, right=arr.length-1; left < right; left++, right--) {
+            final boolean tmp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = tmp;
+        }
+    }
+    
+    public static void reverse(byte[] arr) {
+        for(int left=0, right=arr.length-1; left < right; left++, right--) {
+            final byte tmp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = tmp;
+        }
+    }
+
+    public static void reverse(char[] arr) {
+        for(int left=0, right=arr.length-1; left < right; left++, right--) {
+            final char tmp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = tmp;
+        }
+    }
+
+    public static void reverse(short[] arr) {
+        for(int left=0, right=arr.length-1; left < right; left++, right--) {
+            final short tmp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = tmp;
+        }
+    }
+
+    public static void reverse(int[] arr) {
+        for(int left=0, right=arr.length-1; left < right; left++, right--) {
+            final int tmp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = tmp;
+        }
+    }
+
+    public static void reverse(long[] arr) {
+        for(int left=0, right=arr.length-1; left < right; left++, right--) {
+            final long tmp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = tmp;
+        }
+    }
+
+    public static void reverse(float[] arr) {
+        for(int left=0, right=arr.length-1; left < right; left++, right--) {
+            final float tmp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = tmp;
+        }
+    }
+
+    public static void reverse(double[] arr) {
+        for(int left=0, right=arr.length-1; left < right; left++, right--) {
+            final double tmp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = tmp;
+        }
+    }
 }

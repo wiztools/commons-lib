@@ -26,28 +26,6 @@ public class Base58Util {
         MAP_BASE58 = Collections.unmodifiableMap(base54);
     }
 
-    private static long power(long value, long power) {
-        if(power == 0) {
-            // anything power 0 is 1!
-            return 1;
-        }
-        long result = 1;
-        for(int i = 1; i <= power; i++) {
-            result = result * value;
-        }
-
-        return result;
-    }
-
-    private static char[] reverse(final char[] chars) {
-        char[] out = new char[chars.length];
-        int i = chars.length;
-        for(char c: chars) {
-            out[--i] = c;
-        }
-        return out;
-    }
-
     /**
      * Encodes the given value as a Base58 string.
      * @param value The value to be encoded.
@@ -87,8 +65,10 @@ public class Base58Util {
      */
     public static long decode(final String value) {
         final String val = value.trim();
-        final char[] chars = reverse(val.toCharArray());
+        final char[] chars = val.toCharArray();
+        ArrayUtil.reverse(chars);
         long result = 0;
+        long mul = 1L;
         for(int i = 0; i < chars.length ; i++){
             if(MAP_BASE58.get(chars[i]) == null) {
                 throw new IllegalArgumentException("Invalid character encountered: " + chars[i]);
@@ -96,7 +76,10 @@ public class Base58Util {
             final long v = MAP_BASE58.get(chars[i]);
 
             // Compute:
-            result += v * power(BASE58.length, i);
+            result += v * mul;
+
+            // update mul:
+            mul *= BASE58.length;
         }
         return result;
     }

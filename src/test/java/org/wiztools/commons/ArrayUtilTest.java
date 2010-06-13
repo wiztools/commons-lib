@@ -70,4 +70,12 @@ public class ArrayUtilTest {
         assertArrayEquals(expResult, result);
     }
 
+    @Test
+    public void testReverse() {
+        System.out.println("reverse");
+        String[] expResult = new String[]{"Subhash", "Aarthi"};
+        String[] result = new String[]{"Aarthi", "Subhash"};
+        ArrayUtil.reverse(result);
+        assertArrayEquals(expResult, result);
+    }
 }
