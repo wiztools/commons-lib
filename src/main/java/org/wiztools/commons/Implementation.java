@@ -9,7 +9,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Enumeration;
-import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,9 +28,9 @@ public class Implementation {
         /**
      * This is the variable holding the object cache
      */
-    private static final Hashtable<String, Object> ht = new Hashtable<String, Object>();
+    private static final Map<String, Object> map = new HashMap<String, Object>();
 
-    private static Properties props = new Properties();
+    private static final Properties props = new Properties();
     static{
         try{
             Enumeration<URL> e = Implementation.class.getClassLoader().getResources(PROP_NAME);
@@ -56,19 +57,19 @@ public class Implementation {
                 isSingleton = Boolean.parseBoolean(isSingletonStr);
             }
             else{
-                LOG.finest("Singleton property not set for class: " + className);
+                LOG.log(Level.FINEST, "Singleton property not set for class: {0}", className);
             }
             if(!isSingleton){
                 return (T) Class.forName(implClassStr).newInstance();
             }
-            T o = (T)ht.get(c.getName());
+            T o = (T)map.get(c.getName());
             if(o == null){
                 o = (T) Class.forName(implClassStr).newInstance();
-                ht.put(c.getName(), o);
-                LOG.finest("Class created, and put into cache: " + o.getClass().getName());
+                map.put(c.getName(), o);
+                LOG.log(Level.FINEST, "Class created, and put into cache: {0}", o.getClass().getName());
             }
             else{
-                LOG.finest("Object already available in cache: " + className);
+                LOG.log(Level.FINEST, "Object already available in cache: {0}", className);
             }
             return o;
         }
