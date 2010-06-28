@@ -8,17 +8,26 @@ package org.wiztools.commons;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
+import java.nio.channels.WritableByteChannel;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.MalformedInputException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Common operations on java.io.Stream objects.
  * @author subwiz
  */
 public final class StreamUtil {
+
+    private static final Logger LOG = Logger.getLogger(StreamUtil.class.getName());
+
     private StreamUtil(){}
 
     private static CharBuffer decodeHelper(byte[] byteArray, int numberOfBytes, java.nio.charset.Charset charset) throws IOException {
@@ -126,6 +135,26 @@ public final class StreamUtil {
         }
         finally{
             is.close();
+        }
+    }
+
+    public void copy(final InputStream is, final OutputStream os) throws IOException {
+        final ReadableByteChannel inChannel = Channels.newChannel(is);
+        final WritableByteChannel outChannel = Channels.newChannel(os);
+
+        try{
+            final ByteBuffer buffer = ByteBuffer.allocate(65536);
+            while(true) {
+                int bytesRead = inChannel.read(buffer);
+                if(bytesRead == -1) break;
+                buffer.flip();
+                while(buffer.hasRemaining()) outChannel.write(buffer);
+                buffer.clear();
+            }
+        }
+        finally {
+            try{inChannel.close();}catch(IOException ex){LOG.log(Level.SEVERE, null, ex);}
+            try{outChannel.close();}catch(IOException ex){LOG.log(Level.SEVERE, null, ex);}
         }
     }
 }
