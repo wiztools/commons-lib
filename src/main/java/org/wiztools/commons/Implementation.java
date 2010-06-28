@@ -8,6 +8,7 @@ package org.wiztools.commons;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,7 +29,8 @@ public class Implementation {
         /**
      * This is the variable holding the object cache
      */
-    private static final Map<String, Object> map = new HashMap<String, Object>();
+    private static final Map<String, Object> map = Collections.synchronizedMap(
+            new HashMap<String, Object>());
 
     private static final Properties props = new Properties();
     static{
