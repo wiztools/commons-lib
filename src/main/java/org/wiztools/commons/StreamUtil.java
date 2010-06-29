@@ -138,7 +138,7 @@ public final class StreamUtil {
         }
     }
 
-    public void copy(final InputStream is, final OutputStream os) throws IOException {
+    public static void copy(final InputStream is, final OutputStream os) throws IOException {
         final ReadableByteChannel inChannel = Channels.newChannel(is);
         final WritableByteChannel outChannel = Channels.newChannel(os);
 

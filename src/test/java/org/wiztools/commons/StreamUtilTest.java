@@ -5,6 +5,8 @@
  */
 package org.wiztools.commons;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -57,6 +59,17 @@ public class StreamUtilTest {
         String expResult = TEST_STR;
         String result = StreamUtil.inputStream2String(in, charset);
         assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testCopy() throws Exception {
+        System.out.println("copy");
+
+        byte[] inBytes = "Subhash".getBytes();
+        InputStream is = new ByteArrayInputStream(inBytes);
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        StreamUtil.copy(is, os);
+        assertArrayEquals(inBytes, os.toByteArray());
     }
 
 }
