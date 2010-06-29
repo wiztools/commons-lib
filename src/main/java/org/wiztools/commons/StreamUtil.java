@@ -138,6 +138,12 @@ public final class StreamUtil {
         }
     }
 
+    /**
+     * Copies the content read from InputStream to OutputStream. Uses the NIO Channels to copy.
+     * @param is The InputStream that is read.
+     * @param os The OutputStream where the data is written.
+     * @throws IOException
+     */
     public static void copy(final InputStream is, final OutputStream os) throws IOException {
         final ReadableByteChannel inChannel = Channels.newChannel(is);
         final WritableByteChannel outChannel = Channels.newChannel(os);
