@@ -87,4 +87,53 @@ public final class StringUtil {
     public static String implode(final Collection<String> pieces){
         return implode(pieces.toArray(STRING_ARRAY));
     }
+
+    /**
+     * Capatilize only the first letter of the string.
+     * @param str The input string.
+     * @return The capatilized string.
+     */
+    public static String capatilizeFirstLetter(final String str) {
+        final char[] c = str.toCharArray();
+        if(c.length > 0) {
+            c[0] = Character.toUpperCase(c[0]);
+        }
+        return String.valueOf(c);
+    }
+
+    /**
+     * Capatilize first letter of each word after a space, dot (.) or single-quote (').
+     * Usually used for converting people names to human-addressable formats.
+     * @param str The input string.
+     * @return The final capatilized string.
+     */
+    public static String capatilizeFirstLetterEachWord(final String str) {
+        char[] c = str.toLowerCase().toCharArray();
+        boolean found = false;
+        for(int i=0; i<c.length; i++) {
+            if (!found && Character.isLetter(c[i])) {
+                c[i] = Character.toUpperCase(c[i]);
+                found = true;
+            }
+            else if(Character.isWhitespace(c[i]) || c[i]=='.' || c[i]=='\'') {
+                found = false;
+            }
+        }
+        return String.valueOf(c);
+    }
+
+    /**
+     * Reverses the capitalization of the string. Eg. 'WizTools.org' becomes 'wIZtOOLS.ORG'.
+     * @param str The string which needs to be converted.
+     * @return The reverse captitalized string.
+     */
+    public static String reverseCapitalization(final String str) {
+        char[] c = str.toCharArray();
+        for(int i=0; i<c.length; i++) {
+            if(Character.isLetter(c[i])) {
+                c[i] = Character.isLowerCase(c[i])? Character.toUpperCase(c[i]): Character.toLowerCase(c[i]);
+            }
+        }
+        return String.valueOf(c);
+    }
 }

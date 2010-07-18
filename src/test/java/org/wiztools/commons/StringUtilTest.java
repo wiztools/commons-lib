@@ -86,4 +86,32 @@ public class StringUtilTest {
         assertEquals(expResult, result);
     }
 
+    @Test
+    public void testCapatilizeFirstLetter() {
+        System.out.println("capatilizeFirstLetter");
+        String input = "subhash chandran";
+        String expResult = "Subhash chandran";
+        assertEquals(expResult, StringUtil.capatilizeFirstLetter(input));
+
+        // First letter is already capatilized:
+        input = "Aarthi Rajan";
+        expResult = "Aarthi Rajan";
+        assertEquals(expResult, StringUtil.capatilizeFirstLetter(input));
+    }
+
+    @Test
+    public void testCapatilizeFirstLetterEachWord() {
+        System.out.println("capatilizeFirstLetterEachWord");
+        String input = "miles o'Brien";
+        String expResult = "Miles O'Brien";
+        assertEquals(expResult, StringUtil.capatilizeFirstLetterEachWord(input));
+    }
+
+    @Test
+    public void testReverseCapitalization() {
+        System.out.println("reverseCapitalization");
+        String input = "WizTools.org";
+        String expResult = "wIZtOOLS.ORG";
+        assertEquals(expResult, StringUtil.reverseCapitalization(input));
+    }
 }
