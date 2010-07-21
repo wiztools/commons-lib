@@ -90,6 +90,14 @@ public final class StringUtil {
         return implode(pieces.toArray(STRING_ARRAY));
     }
 
+    /**
+     * A method similar to PHP's explode() function (http://php.net/explode)
+     * This method does not use RegularExpression based split as in Java. This
+     * makes this method much faster than Java's implementation.
+     * @param delimiter The delimiter string to split the string with.
+     * @param str The input string.
+     * @return The List of split string.
+     */
     public static List<String> explode(final String delimiter, final String str) {
         final List<String> out = new ArrayList<String>();
         final int len = delimiter.length();
