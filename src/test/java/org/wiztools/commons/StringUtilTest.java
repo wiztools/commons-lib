@@ -5,6 +5,8 @@
  */
 package org.wiztools.commons;
 
+import java.util.Arrays;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -84,6 +86,44 @@ public class StringUtilTest {
         String expResult = "Aarthi Subhash";
         String result = StringUtil.implode(pieces);
         assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testExplode() {
+        System.out.println("explode");
+        String str = "subhash.chandran.";
+        String delimiter = ".";
+        List expResult = Arrays.asList(new String[]{"subhash", "chandran", ""});
+        List result = StringUtil.explode(delimiter, str);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testExplodeSpeed() {
+        System.out.println("speed test of split");
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i < 10000; i++) {
+            sb.append("subhash.chandran.s.");
+        }
+
+        final String str = sb.toString();
+
+        long start = System.currentTimeMillis();
+        str.split("\\.");
+        long end = System.currentTimeMillis();
+        final long regexSplitTime = end - start;
+
+        System.out.println("String default split: " + regexSplitTime);
+
+        start = System.currentTimeMillis();
+        StringUtil.explode(".", str);
+        end = System.currentTimeMillis();
+        final long mySplitTime = end - start;
+
+        System.out.println("String my split: " + mySplitTime);
+
+        // If we do not have the split time advantage, it is no use having our split functionality!
+        assertTrue(mySplitTime < regexSplitTime);
     }
 
     @Test
