@@ -99,6 +99,16 @@ public class StringUtilTest {
     }
 
     @Test
+    public void testExplode_Multi() {
+        System.out.println("explode");
+        String str = "subhash.x.chandran.x.";
+        String delimiter = ".x.";
+        List expResult = Arrays.asList(new String[]{"subhash", "chandran", ""});
+        List result = StringUtil.explode(delimiter, str);
+        assertEquals(expResult, result);
+    }
+
+    @Test
     public void testExplodeSpeed() {
         System.out.println("speed test of split");
         StringBuilder sb = new StringBuilder();

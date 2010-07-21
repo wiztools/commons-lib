@@ -92,13 +92,14 @@ public final class StringUtil {
 
     public static List<String> explode(final String delimiter, final String str) {
         final List<String> out = new ArrayList<String>();
+        final int len = delimiter.length();
 
         int startIndex = 0;
         int currIndex = 0;
         while((currIndex = str.indexOf(delimiter, startIndex)) != -1) {
             final String sub = str.substring(startIndex, currIndex);
             out.add(sub);
-            startIndex = currIndex + 1;
+            startIndex = currIndex + len;
         }
         // Get the tail end of the split string
         final String sub = str.substring(startIndex);
