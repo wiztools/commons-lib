@@ -8,11 +8,21 @@
     <name>wiztools-commons-lib</name>
     <description>Commons library used across WizTools.org projects</description>
     <url>http://wiztools-commons-lib.googlecode.com/</url>
+    
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
     <scm>
         <connection>scm:hg:http://wiztools-commons-lib.googlecode.com/hg</connection>
         <developerConnection>scm:hg:https://wiztools-commons-lib.googlecode.com/hg</developerConnection>
         <url>http://code.google.com/p/wiztools-commons-lib/source/browse/</url>
     </scm>
+    
     <developers>
         <developer>
             <id>subwiz</id>
@@ -21,6 +31,7 @@
             <organizationUrl>http://wiztools.org/</organizationUrl>
         </developer>
     </developers>
+
     <build>
         <plugins>
             <plugin>
@@ -58,6 +69,7 @@
             </plugin>
         </plugins>
     </build>
+    
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
