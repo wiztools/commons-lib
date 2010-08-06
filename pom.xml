@@ -25,7 +25,7 @@
     </licenses>
 
     <scm>
-        <connection>scm:hg:http://wiztools-commons-lib.googlecode.com/hg</connection>
+        <connection>scm:hg:https://wiztools-commons-lib.googlecode.com/hg</connection>
         <developerConnection>scm:hg:https://wiztools-commons-lib.googlecode.com/hg</developerConnection>
         <url>http://code.google.com/p/wiztools-commons-lib/source/browse/</url>
     </scm>
