@@ -6,12 +6,21 @@
     <packaging>jar</packaging>
     <version>0.2.0-SNAPSHOT</version>
     <name>wiztools-commons-lib</name>
+    <description>Commons library used across WizTools.org projects</description>
     <url>http://wiztools-commons-lib.googlecode.com/</url>
     <scm>
         <connection>scm:hg:http://wiztools-commons-lib.googlecode.com/hg</connection>
         <developerConnection>scm:hg:https://wiztools-commons-lib.googlecode.com/hg</developerConnection>
         <url>http://code.google.com/p/wiztools-commons-lib/source/browse/</url>
     </scm>
+    <developers>
+        <developer>
+            <id>subwiz</id>
+            <email>subwiz@gmail.com</email>
+            <organization>WizTools.org</organization>
+            <organizationUrl>http://wiztools.org/</organizationUrl>
+        </developer>
+    </developers>
     <build>
         <plugins>
             <plugin>
