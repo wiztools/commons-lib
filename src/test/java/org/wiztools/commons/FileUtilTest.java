@@ -55,4 +55,21 @@ public class FileUtilTest {
         assertEquals(expResult, result);
     }
 
+    @Test
+    public void testCopy() throws Exception {
+        System.out.println("copy()");
+
+        File source = new File("src/test/resources");
+        File dest = new File(System.getProperty("java.io.tmpdir"));
+
+        FileUtil.copy(source, dest);
+
+        final String fileName = "wiztools-service-locator.properties";
+        String content1 = FileUtil.getContentAsString(
+                new File(source, fileName), Charsets.UTF_8);
+        String content2 = FileUtil.getContentAsString(
+                new File(dest, fileName), Charsets.UTF_8);
+
+        assertEquals(content1, content2);
+    }
 }

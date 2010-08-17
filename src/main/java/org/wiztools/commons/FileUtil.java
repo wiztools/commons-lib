@@ -14,6 +14,7 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
 
 /**
@@ -118,6 +119,39 @@ public final class FileUtil {
             if(os != null){
                 os.close();
             }
+        }
+    }
+
+    /**
+     * Copies content of directory/file. Note: will over-write any existing content.
+     * @param source The source directory/file.
+     * @param dest The destination directory/file.
+     * @throws IOException When IO error happens.
+     */
+    public static void copy(final File source, final File dest) throws IOException {
+        if(source.isDirectory()) {
+            if(!dest.exists()) {
+                dest.mkdir();
+            }
+
+            final String[] files = source.list();
+            for(final String name: files) {
+                copy(new File(source, name),
+                        new File(dest, name));
+            }
+        }
+        else {
+            if(!dest.exists()) {
+                dest.createNewFile();
+            }
+
+            final FileChannel fcSource = new FileInputStream(source).getChannel();
+            final FileChannel fcDest = new FileOutputStream(dest).getChannel();
+
+            fcDest.transferFrom(fcSource, 0, fcSource.size());
+
+            if(fcSource != null) { fcSource.close(); }
+            if(fcDest != null) { fcDest.close(); }
         }
     }
 }
