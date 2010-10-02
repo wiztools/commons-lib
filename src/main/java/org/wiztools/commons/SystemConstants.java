@@ -6,7 +6,7 @@
 package org.wiztools.commons;
 
 /**
- * This class defines JVM properties which are accessed using
+ * This interface defines JVM properties which are accessed using
  * java.lang.System.getProperty() method. Note: These values are
  * initialized when the Class loader loads this interface. Any subsequent
  * change in System properties will not reflect in these variables.
