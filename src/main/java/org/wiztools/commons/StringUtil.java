@@ -23,11 +23,20 @@ public final class StringUtil {
      * @param str The string to check.
      * @return Return value of the validation.
      */
-    public static boolean isStrEmpty(final String str) {
-        if (str == null || "".equals(str.trim())) {
+    public static boolean isEmpty(final String str) {
+        if (str == null || str.trim().isEmpty()) {
             return true;
         }
         return false;
+    }
+
+    /**
+     * Checks if the string is not null and not empty.
+     * @param str
+     * @return true is not empty.
+     */
+    public static boolean isNotEmpty(final String str) {
+        return !isEmpty(str);
     }
 
     /**
