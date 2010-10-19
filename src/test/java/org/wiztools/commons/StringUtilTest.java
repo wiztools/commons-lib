@@ -47,7 +47,7 @@ public class StringUtilTest {
         System.out.println("isStrEmpty");
         String str = "";
         boolean expResult = true;
-        boolean result = StringUtil.isStrEmpty(str);
+        boolean result = StringUtil.isEmpty(str);
         assertEquals(expResult, result);
     }
 
