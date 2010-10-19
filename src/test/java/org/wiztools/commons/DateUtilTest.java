@@ -40,6 +40,15 @@ public class DateUtilTest {
     public void tearDown() {
     }
 
+    @Test
+    public void testIsDateBetween() {
+        System.out.println("isDateBetween()");
+        Date now = DateUtil.now();
+        Date startDate = DateUtil.getDatePlusDays(now, -1);
+        Date endDate = DateUtil.getDatePlusDays(now, 1);
+        assertTrue(DateUtil.isDateBetween(startDate, endDate, now));
+    }
+
     /**
      * Test of getAsISODateString method, of class DateUtil.
      */

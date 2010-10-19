@@ -5,11 +5,11 @@
  */
 package org.wiztools.commons;
 
+import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -40,28 +40,39 @@ public final class DateUtil {
         return SDF_ISO_DATE.format(date) + "T" + SDF_ISO_TIME.format(date);
     }
 
-    private static final Pattern PATTERN_ISO_DATE = Pattern.compile("([0-9]{4})-([0-9]{2})-([0-9]{2})");
-
     /**
      * Returns java.util.Date object for the ISO 8601 formatted String yyyy-MM-dd.
      * @param dateStr
      * @return
      */
     public static Date getFromISODateString(final String dateStr){
-        Matcher m = PATTERN_ISO_DATE.matcher(dateStr);
-        if(m.matches()){
-            int year = Integer.parseInt(m.group(1));
-            int month = Integer.parseInt(m.group(2));
-            int date = Integer.parseInt(m.group(3));
+        try{
+            Format fmt = new SimpleDateFormat("yyyy-MM-dd");
+            return (Date) fmt.parseObject(dateStr);
+        }
+        catch(ParseException ex) {
+            throw new IllegalArgumentException(ex);
+        }
+    }
 
-            Calendar c = Calendar.getInstance();
-            c.clear();
-            c.set(year, month-1, date); // Month starts from 0
-            return c.getTime();
+    /**
+     * This is an inclusive method: returns true if the date is equal to startDate or endDate.
+     * @param startDate The start date.
+     * @param endDate The end date.
+     * @param date The date to verify.
+     * @return true if the date falls between start date and end date.
+     */
+    public static boolean isDateBetween(final Date startDate,
+            final Date endDate,
+            final Date date) {
+        // check if end date is later than start date:
+        if(startDate.compareTo(endDate) > 0) {
+            throw new IllegalArgumentException("Start date cannot be greater than end date!");
         }
-        else{
-            throw new IllegalArgumentException("Date string not in correct format!");
+        if(date.compareTo(startDate) >= 0 && date.compareTo(endDate) <= 0) {
+            return true;
         }
+        return false;
     }
 
     private static Date getDatePlus(final int unit, final Date date, final int quantity) {
