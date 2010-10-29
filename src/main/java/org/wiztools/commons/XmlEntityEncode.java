@@ -12,12 +12,35 @@ package org.wiztools.commons;
 public final class XmlEntityEncode {
     private XmlEntityEncode(){}
 
+    /**
+     * Converts XML special characters like &lt; to corresponding encoded value &amp;lt;.
+     * @param input
+     * @return String which can be embeded safely inside XML document.
+     */
     public static String encode(final String input){
-        String t = input.replaceAll("&", "&amp;");
-        t = t.replaceAll("<", "&lt;");
-        t = t.replaceAll(">", "&gt;");
-        t = t.replaceAll("'", "&apos;");
-        t = t.replaceAll("\"", "&quot;");
-        return t;
+        final StringBuilder sb = new StringBuilder();
+        for(final char c: input.toCharArray()) {
+            switch(c) {
+                case '&':
+                    sb.append("&amp;");
+                    break;
+                case '<':
+                    sb.append("&lt;");
+                    break;
+                case '>':
+                    sb.append("&gt;");
+                    break;
+                case '\'':
+                    sb.append("&apos;");
+                    break;
+                case '"':
+                    sb.append("&quot;");
+                    break;
+                default:
+                    sb.append(c);
+            }
+        }
+
+        return sb.toString();
     }
 }
