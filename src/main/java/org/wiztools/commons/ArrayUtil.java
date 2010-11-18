@@ -16,6 +16,20 @@ public final class ArrayUtil {
     private ArrayUtil(){}
 
     /**
+     * Determines if the passed object is of type array.
+     * @param o The object to determine if it is an array.
+     * @return true if the passed object is an array.
+     * @throws NullPointerException when the passed object is null.
+     */
+    public static boolean isArray(Object o) throws NullPointerException {
+        if(o == null)
+            throw new NullPointerException("Object is null: cannot determine if it is of array type.");
+        else {
+            return o.getClass().isArray();
+        }
+    }
+
+    /**
      * Concatenates all the passed parameters.
      * @param <T>
      * @param objs

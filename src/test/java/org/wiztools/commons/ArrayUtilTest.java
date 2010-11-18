@@ -5,6 +5,7 @@
  */
 package org.wiztools.commons;
 
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -35,6 +36,22 @@ public class ArrayUtilTest {
 
     @After
     public void tearDown() {
+    }
+
+    @Test
+    public void testIsArrayPositive() {
+        System.out.println("testIsArrayPositive");
+        String[] arr = new String[]{};
+        boolean result = ArrayUtil.isArray(arr);
+        assertEquals(true, result);
+    }
+
+    @Test
+    public void testIsArrayNegative() {
+        System.out.println("testIsArrayNegative");
+        Object o = new ArrayList<Object>();
+        boolean result = ArrayUtil.isArray(o);
+        assertEquals(false, result);
     }
 
     /**
