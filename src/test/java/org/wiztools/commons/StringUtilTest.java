@@ -43,8 +43,8 @@ public class StringUtilTest {
      * Test of isStrEmpty method, of class StringUtil.
      */
     @Test
-    public void testIsStrEmpty() {
-        System.out.println("isStrEmpty");
+    public void testIsEmpty() {
+        System.out.println("isEmpty");
         String str = "";
         boolean expResult = true;
         boolean result = StringUtil.isEmpty(str);
@@ -105,6 +105,28 @@ public class StringUtilTest {
         String delimiter = ".x.";
         List expResult = Arrays.asList(new String[]{"subhash", "chandran", ""});
         List result = StringUtil.explode(delimiter, str);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testExplodeFirst() {
+        System.out.println("explodeFirst");
+
+        String str = "subhash.x.aarthi.x.s";
+        String delimiter = ".x.";
+        List expResult = Arrays.asList(new String[]{"subhash", "aarthi.x.s"});
+        List result = StringUtil.explodeFirst(delimiter, str);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testExplodeLast() {
+        System.out.println("testExplodeLast");
+
+        String str = "subhash.x.aarthi.x.s";
+        String delimiter = ".x.";
+        List expResult = Arrays.asList(new String[]{"subhash.x.aarthi", "s"});
+        List result = StringUtil.explodeLast(delimiter, str);
         assertEquals(expResult, result);
     }
 

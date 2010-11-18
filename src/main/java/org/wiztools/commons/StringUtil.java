@@ -126,6 +126,49 @@ public final class StringUtil {
     }
 
     /**
+     * When delimiter is found in the string, the string is split into two parts:
+     * sub-string till the delimiter, and the string after the delimiter.
+     * @param delimiter The delimiter string.
+     * @param str The string to operate on.
+     * @return List of the result.
+     */
+    public static List<String> explodeFirst(final String delimiter, final String str) {
+        final List<String> out = new ArrayList<String>(2);
+
+        final int beginIndex = str.indexOf(delimiter);
+        if(beginIndex != -1) {
+            final String subFirst = str.substring(0, beginIndex);
+            final String subLast = str.substring(beginIndex + delimiter.length());
+
+            out.add(subFirst);
+            out.add(subLast);
+        }
+
+        return out;
+    }
+
+    /**
+     * Splits the string into two parts based on the last occurrence of the delimiter.
+     * @param delimiter The delimiter.
+     * @param str The string to operate on.
+     * @return The List of exploded string.
+     */
+    public static List<String> explodeLast(final String delimiter, final String str) {
+        final List<String> out = new ArrayList<String>(2);
+
+        final int lastIndex = str.lastIndexOf(delimiter);
+        if(lastIndex != -1) {
+            final String subFirst = str.substring(0, lastIndex);
+            final String subLast = str.substring(lastIndex + delimiter.length());
+
+            out.add(subFirst);
+            out.add(subLast);
+        }
+
+        return out;
+    }
+
+    /**
      * Capatilize only the first letter of the string.
      * @param str The input string.
      * @return The capatilized string.
