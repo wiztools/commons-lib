@@ -10,7 +10,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
+ * An implementation of the ROT-13 algorithm. The lookup table is defined as a
+ * constant in the code: making this implementation pretty fast.
  * @author subhash
  */
 public final class Rot13 {

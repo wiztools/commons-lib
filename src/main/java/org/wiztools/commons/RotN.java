@@ -10,7 +10,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
+ * This class is an implementation of the ROT-N algorithm. The algorithm
+ * implemented in this class dynamically creates the lookup table.
  * @author subhash
  */
 public final class RotN {
@@ -76,10 +77,24 @@ public final class RotN {
         return sb.toString();
     }
 
+    /**
+     * To cipher a String using ROT-N algorithm.
+     * @param n The value of N in ROT-N.
+     * @param inString The input string.
+     * @return The ciphered value.
+     * @throws IllegalArgumentException When n is not within range.
+     */
     public static String cipher(final int n, final String inString) throws IllegalArgumentException {
         return process(inString, getCipherMap(n));
     }
 
+    /**
+     * To decipher a String using ROT-N algorithm.
+     * @param n The value of N in ROT-N.
+     * @param inString The input string.
+     * @return The deciphered value.
+     * @throws IllegalArgumentException When n is not within range.
+     */
     public static String deCipher(final int n, final String inString) throws IllegalArgumentException {
         return process(inString, getDeCipherMap(n));
     }
