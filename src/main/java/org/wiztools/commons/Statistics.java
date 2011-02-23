@@ -88,31 +88,22 @@ public final class Statistics {
 
     private static class ModeCompute <T extends Number> {
         private Map<T, Integer> map = new HashMap<T, Integer>();
-        void add(T t) {
-            if(map.get(t) == null) {
-                map.put(t, 1);
-            }
-            else {
-                int count = map.get(t);
-                count++;
-                map.put(t, count);
-            }
-        }
+        private int maxFrequency = 0;
 
-        int getMaxFrequency() {
-            int maxCount = 0;
-            for(int value: map.values()) {
-                if(value > maxCount) {
-                    maxCount = value;
-                }
-            }
-            return maxCount;
+        void add(T t) {
+            final int count = (map.get(t) == null)? 1: (map.get(t) + 1);
+
+            // Update map:
+            map.put(t, count);
+
+            // Update maxFrequency:
+            if(count > maxFrequency)
+                maxFrequency = count;
         }
 
         List<T> getMode() {
             List<T> out = new ArrayList<T>();
 
-            final int maxFrequency = getMaxFrequency();
             for(Map.Entry<T, Integer> entry: map.entrySet()) {
                 if(entry.getValue() == maxFrequency) {
                     out.add(entry.getKey());
