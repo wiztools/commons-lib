@@ -6,10 +6,8 @@
 
 package org.wiztools.commons;
 
-import java.io.IOException;
-
 /**
- *
+ * Builder class to generate the toString() output.
  * @author subwiz
  */
 public class ToStringBuilder {

@@ -6,7 +6,7 @@
 package org.wiztools.commons;
 
 /**
- *
+ * Interface to define the contract for classes using the ToString framework.
  * @author subwiz
  */
 public interface ToString {
