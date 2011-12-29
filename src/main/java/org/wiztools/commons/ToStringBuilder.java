@@ -15,12 +15,22 @@ import java.io.IOException;
 public class ToStringBuilder {
     
     private final StringBuilder sb = new StringBuilder();
-
-    public ToStringBuilder append(Object obj) {
+    
+    private void addSeparator() {
         if(sb.length() != 0) { // already has content
             sb.append("; ");
         }
+    }
+
+    public ToStringBuilder append(Object obj) {
+        addSeparator();
         sb.append(obj);
+        return this;
+    }
+    
+    public ToStringBuilder append(String name, Object obj) {
+        addSeparator();
+        sb.append(name).append("=").append(obj);
         return this;
     }
 
