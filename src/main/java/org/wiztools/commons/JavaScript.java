@@ -107,7 +107,7 @@ public class JavaScript {
     /**
      * 
      * @param str
-     * @return
+     * @return decodeURIComponent return value.
      */
     public static String decodeURIComponent(final String str) {
         try{

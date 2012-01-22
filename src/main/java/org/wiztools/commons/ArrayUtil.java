@@ -33,7 +33,7 @@ public final class ArrayUtil {
      * Concatenates all the passed parameters.
      * @param <T>
      * @param objs
-     * @return
+     * @return T[]
      */
     public static <T> T[] concat(T[] ... objs){
         List<T> out = new ArrayList<T>();

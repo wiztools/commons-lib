@@ -25,7 +25,7 @@ public final class DateUtil {
     /**
      * Returns the date in ISO 8601 format yyyy-MM-dd.
      * @param date
-     * @return
+     * @return String representation of the date in ISO-8601.
      */
     public static String getAsISODateString(final Date date){
         return SDF_ISO_DATE.format(date);
@@ -34,7 +34,7 @@ public final class DateUtil {
     /**
      * Returns the date and time in ISO 8601 format yyyy-MM-dd HH:mm:ss
      * @param date
-     * @return
+     * @return String representation of the date in ISO-8601.
      */
     public static String getAsISODateTimeString(final Date date){
         return SDF_ISO_DATE.format(date) + "T" + SDF_ISO_TIME.format(date);
@@ -43,7 +43,7 @@ public final class DateUtil {
     /**
      * Returns java.util.Date object for the ISO 8601 formatted String yyyy-MM-dd.
      * @param dateStr
-     * @return
+     * @return Date.
      */
     public static Date getFromISODateString(final String dateStr){
         try{
@@ -86,7 +86,7 @@ public final class DateUtil {
     /**
      * Adds the number of days to the date and returns the new Date instance.
      * @param date Input date.
-     * @param months Number of days to add.
+     * @param days Number of days to add.
      * @return Computed date.
      */
     public static Date getDatePlusDays(final Date date, final int days){

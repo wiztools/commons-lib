@@ -47,7 +47,7 @@ public final class StreamUtil {
     /**
      * Reads the stream and generates a String content using the charset specified.
      * Stream will be closed at the end of the operation.
-     * @param in InputStream as the input.
+     * @param is InputStream as the input.
      * @param charset The charset to use to create the String object.
      * @return The output String.
      * @throws IOException
