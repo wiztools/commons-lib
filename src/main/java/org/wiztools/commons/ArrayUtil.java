@@ -14,6 +14,14 @@ import java.util.List;
  */
 public final class ArrayUtil {
     private ArrayUtil(){}
+    
+    public static <T> boolean contains(T[] array, T value) {
+        for(T v: array) {
+            if(v == null && value == null) return true;
+            if(v != null && v.equals(value)) return true;        
+        }
+        return false;
+    }
 
     /**
      * Determines if the passed object is of type array.
