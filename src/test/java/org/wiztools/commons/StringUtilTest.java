@@ -186,4 +186,28 @@ public class StringUtilTest {
         String expResult = "wIZtOOLS.ORG";
         assertEquals(expResult, StringUtil.reverseCapitalization(input));
     }
+    
+    @Test
+    public void testLanguageTrim() {
+        System.out.println("languageTrim");
+        
+        {
+            final String input = "Lorem ipsum dolor sit amet, consectetur adipisicing elit";
+            final int length = 20;
+            String expResult = "Lorem ipsum dolor";
+            assertEquals(expResult, StringUtil.languageTrim(input, length));
+        }
+        {
+            final String input = "Lorem ipsum dolor sit amet, consectetur adipisicing elit";
+            final int length = 4;
+            String expResult = "Lore";
+            assertEquals(expResult, StringUtil.languageTrim(input, length));
+        }
+        {
+            final String input = "Lorem ipsum dolor sit amet, consectetur adipisicing elit";
+            final int length = 60;
+            String expResult = input;
+            assertEquals(expResult, StringUtil.languageTrim(input, length));
+        }
+    }
 }

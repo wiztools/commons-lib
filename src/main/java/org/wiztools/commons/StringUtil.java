@@ -216,4 +216,40 @@ public final class StringUtil {
         }
         return String.valueOf(c);
     }
+    
+    /**
+     * Trim text to the last whitespace character within range. It is suggested
+     * to pass String.trim()ed text to this method.
+     * @param str The input text that needs to be trimmed.
+     * @param length The max-length to which it is trimmed to.
+     * @return The trimmed text.
+     */
+    public static String languageTrim(final String str, final int length) {
+        if(length < 2) {
+            throw new IllegalArgumentException("Length should not be less than 2.");
+        }
+        
+        // Input string is less-than-or-equal to defined length:
+        if(str.length() <= length) {
+            return str;
+        }
+        
+        // Input string is greater than input string:
+        final char[] arr = str.toCharArray();
+        int lastSpaceCharacter = -1;
+        for(int i=length; i>-1; i--) {
+            if(Character.isWhitespace(arr[i])) {
+                lastSpaceCharacter = i;
+                break;
+            }
+        }
+        
+        // when there is no space character, do hard-trim:
+        if(lastSpaceCharacter <= 0) {
+            return new String(arr, 0, length);
+        }
+        else {
+            return new String(arr, 0, lastSpaceCharacter);
+        }
+    }
 }
