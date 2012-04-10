@@ -10,7 +10,8 @@ import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 
 /**
- *
+ * Code is derived from:
+ * http://www.devdaily.com/java/jwarehouse/syslogd-2.2/source/com/ice/util/HexDump.java.shtml
  * @author subwiz
  */
 public class HexDump {
@@ -22,11 +23,11 @@ public class HexDump {
     private static final int ROW_HALF = 7;
     private static final int ROW_QTR2 = 11;
     
-    public static String getDumpHexData(byte[] buf) {
-        return getDumpHexData(buf, buf.length);
+    public static String getHexDataDumpAsString(byte[] buf) {
+        return getHexDataDumpAsString(buf, buf.length);
     }
     
-    public static String getDumpHexData(byte[] buf, int len) {
+    public static String getHexDataDumpAsString(byte[] buf, int len) {
         try {
             final ByteArrayOutputStream baos = new ByteArrayOutputStream();
             PrintStream out = new PrintStream(baos, false, Charsets.UTF_8.name());
