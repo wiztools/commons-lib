@@ -14,9 +14,24 @@ package org.wiztools.commons;
  */
 public interface SystemProperty {
     public String fileEncoding = System.getProperty("file.encoding");
+    
+    /**
+     * Windows: \
+     * Mac &amp; *nix: /
+     */
     public String fileSeparator = System.getProperty("file.separator");
     public String tmpDir = System.getProperty("java.io.tmpdir");
+    
+    /**
+     * Windows: \r\n
+     * Mac &amp; *nix: \n
+     */
     public String lineSeparator = System.getProperty("line.separator");
+    
+    /**
+     * Windows: ;
+     * Mac &amp; *nix: :
+     */
     public String pathSeparator = System.getProperty("path.separator");
     public String userDir = System.getProperty("user.dir");
     public String userHome = System.getProperty("user.home");
