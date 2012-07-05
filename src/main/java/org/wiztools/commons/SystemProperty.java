@@ -12,7 +12,7 @@ package org.wiztools.commons;
  * change in System properties will not reflect in these variables.
  * @author subwiz
  */
-public interface SystemConstants {
+public interface SystemProperty {
     public String fileEncoding = System.getProperty("file.encoding");
     public String fileSeparator = System.getProperty("file.separator");
     public String tmpDir = System.getProperty("java.io.tmpdir");
