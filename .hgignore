@@ -2,7 +2,15 @@
 # These lines are suggested according to the svn:ignore property
 # Feel free to enable them by uncommenting them
 syntax:glob
+
+## Maven
 target
 .pom.xml.swp
+
+## Gradle
 build
 .gradle
+
+## Buildr
+reports
+
