@@ -4,3 +4,5 @@
 syntax:glob
 target
 .pom.xml.swp
+build
+.gradle
