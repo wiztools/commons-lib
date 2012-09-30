@@ -3,7 +3,8 @@ apply plugin: 'java'
 version = '0.4.0-SNAPSHOT'
 
 tasks.withType(Compile) { 
-    options.compilerArgs << "-Xlint:unchecked" 
+    options.compilerArgs << "-Xlint:unchecked"
+    options.encoding = 'UTF-8'
 }
 
 repositories {
