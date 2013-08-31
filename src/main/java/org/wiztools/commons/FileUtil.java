@@ -5,17 +5,21 @@
  */
 package org.wiztools.commons;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Common functions using the java.io.File object.
@@ -42,6 +46,26 @@ public final class FileUtil {
             if (is != null) {
                 is.close();
             }
+        }
+    }
+    
+    /**
+     * Each line in the file is returned as a element in the list.
+     * @param f The file that needs to be read.
+     * @param charset The charset to be used to read the file.
+     * @return The string-list containing lines in the file.
+     * @throws IOException
+     */
+    public static List<String> getContentAsStringList(final File f,
+            final Charset charset) throws IOException {
+        try(BufferedReader br = new BufferedReader(
+                    new InputStreamReader(new FileInputStream(f), charset));) {
+            List<String> out = new ArrayList<>();
+            String line;
+            while((line=br.readLine())!=null) {
+                out.add(line);
+            }
+            return out;
         }
     }
 

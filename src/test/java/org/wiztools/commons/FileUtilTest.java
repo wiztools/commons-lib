@@ -7,6 +7,8 @@ package org.wiztools.commons;
 
 import java.io.File;
 import java.nio.charset.Charset;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -71,5 +73,18 @@ public class FileUtilTest {
                 new File(dest, fileName), Charsets.UTF_8);
 
         assertEquals(content1, content2);
+    }
+
+    /**
+     * Test of getContentAsStringList method, of class FileUtil.
+     */
+    @Test
+    public void testGetContentAsStringList() throws Exception {
+        System.out.println("getContentAsStringList");
+        File f = new File("src/test/resources/test-utf8.txt");
+        Charset charset = Charsets.UTF_8;
+        List expResult = Arrays.asList(new String[]{"Aarthi", "Subhash", "Love"});
+        List result = FileUtil.getContentAsStringList(f, charset);
+        assertEquals(expResult, result);
     }
 }
