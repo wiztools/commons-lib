@@ -38,6 +38,13 @@ public class CollectionsUtilTest {
     @After
     public void tearDown() {
     }
+    
+    @Test
+    public void testEmptyMultiValueMap() {
+        System.out.println("emptyMultiValueMap()");
+        
+        assertTrue(CollectionsUtil.<String, String>emptyMultiValueMap().isEmpty());
+    }
 
     /**
      * Test of unmodifiableMultiValueMap method, of class CollectionsUtil.

@@ -85,7 +85,12 @@ public final class CollectionsUtil {
     };
     
     /**
-     * Returns a empty MultiValueMap.
+     * Returns a empty MultiValueMap. Example usage:
+     * <pre>
+     * {@code
+     * MultiValueMap<String, String> map = CollectionsUtil.<String, String>emptyMultiValueMap();
+     * }
+     * </pre>
      * @param <K>
      * @param <V>
      * @return Returns a empty MultiValueMap.
