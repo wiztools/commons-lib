@@ -14,3 +14,7 @@ build
 ## Buildr
 reports
 
+## Idea
+.idea
+wiztools-commons-lib.iml
+
