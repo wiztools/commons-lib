@@ -26,8 +26,8 @@
 
     <scm>
         <connection>scm:hg:https://wiztools-commons-lib.googlecode.com/hg</connection>
-        <developerConnection>scm:hg:https://wiztools-commons-lib.googlecode.com/hg</developerConnection>
-        <url>http://code.google.com/p/wiztools-commons-lib/source/browse/</url>
+        <developerConnection>scm:hg:ssh://hg@bitbucket.org/wiztools/wiztools-commons-lib</developerConnection>
+        <url>https://bitbucket.org/wiztools/wiztools-commons-lib</url>
     </scm>
     
     <developers>
@@ -35,7 +35,7 @@
             <id>subwiz</id>
             <email>subwiz@gmail.com</email>
             <organization>WizTools.org</organization>
-            <organizationUrl>http://wiztools.org/</organizationUrl>
+            <organizationUrl>http://www.wiztools.org/</organizationUrl>
         </developer>
     </developers>
 
