@@ -11,7 +11,7 @@
     <groupId>org.wiztools.commons</groupId>
     <artifactId>wiztools-commons-lib</artifactId>
     <packaging>jar</packaging>
-    <version>0.4.1</version>
+    <version>0.4.2-SNAPSHOT</version>
     <name>wiztools-commons-lib</name>
     <description>Commons library used across WizTools.org projects</description>
     <url>https://bitbucket.org/wiztools/wiztools-commons-lib</url>
@@ -28,7 +28,7 @@
         <connection>scm:hg:https://wiztools-commons-lib.googlecode.com/hg</connection>
         <developerConnection>scm:hg:ssh://hg@bitbucket.org/wiztools/wiztools-commons-lib</developerConnection>
         <url>https://bitbucket.org/wiztools/wiztools-commons-lib</url>
-      <tag>wiztools-commons-lib-0.4.1</tag>
+      <tag>HEAD</tag>
   </scm>
     
     <developers>
