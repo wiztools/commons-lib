@@ -14,7 +14,7 @@
     <version>0.4.1-SNAPSHOT</version>
     <name>wiztools-commons-lib</name>
     <description>Commons library used across WizTools.org projects</description>
-    <url>http://wiztools-commons-lib.googlecode.com/</url>
+    <url>https://bitbucket.org/wiztools/wiztools-commons-lib</url>
     
     <licenses>
         <license>
@@ -39,6 +39,17 @@
             <organizationUrl>http://www.wiztools.org/</organizationUrl>
         </developer>
     </developers>
+    
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 
     <build>
         <plugins>
