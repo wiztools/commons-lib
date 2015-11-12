@@ -12,9 +12,9 @@
     <artifactId>commons-lib</artifactId>
     <packaging>jar</packaging>
     <version>0.4.2-SNAPSHOT</version>
-    <name>wiztools-commons-lib</name>
+    <name>WizTools.org Commons Lib</name>
     <description>Commons library used across WizTools.org projects</description>
-    <url>https://bitbucket.org/wiztools/wiztools-commons-lib</url>
+    <url>https://github.com/wiztools/commons-lib</url>
     
     <licenses>
         <license>
@@ -25,8 +25,8 @@
     </licenses>
 
     <scm>
-        <connection>scm:hg:https://wiztools-commons-lib.googlecode.com/hg</connection>
-        <developerConnection>scm:hg:ssh://hg@bitbucket.org/wiztools/wiztools-commons-lib</developerConnection>
+        <connection>scm:git:https://github.com/wiztools/commons-lib.git</connection>
+        <developerConnection>scm:git:git@github.com:wiztools/commons-lib.git</developerConnection>
         <url>https://bitbucket.org/wiztools/wiztools-commons-lib</url>
       <tag>HEAD</tag>
   </scm>
@@ -56,7 +56,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
-                <version>2.5</version>
+                <version>2.6</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
                 </configuration>
@@ -64,7 +64,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
+                <version>3.3</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
@@ -113,7 +113,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.1</version>
+                <version>2.5.2</version>
             </plugin>
         </plugins>
     </build>
@@ -122,7 +122,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
