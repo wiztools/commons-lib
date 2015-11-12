@@ -17,7 +17,6 @@ import java.nio.channels.WritableByteChannel;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
 import java.nio.charset.MalformedInputException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -124,7 +123,7 @@ public final class StreamUtil {
      * @throws IOException
      */
     public static byte[] inputStream2Bytes(final InputStream is) throws IOException{
-        try{
+        try {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             byte[] buf = new byte[1024*8];
             int len = -1;
@@ -145,10 +144,10 @@ public final class StreamUtil {
      * @throws IOException
      */
     public static void copy(final InputStream is, final OutputStream os) throws IOException {
-        final ReadableByteChannel inChannel = Channels.newChannel(is);
-        final WritableByteChannel outChannel = Channels.newChannel(os);
-
-        try{
+        try(
+                final ReadableByteChannel inChannel = Channels.newChannel(is);
+                final WritableByteChannel outChannel = Channels.newChannel(os);
+                ) {
             final ByteBuffer buffer = ByteBuffer.allocate(65536);
             while(true) {
                 int bytesRead = inChannel.read(buffer);
@@ -157,10 +156,6 @@ public final class StreamUtil {
                 while(buffer.hasRemaining()) outChannel.write(buffer);
                 buffer.clear();
             }
-        }
-        finally {
-            try{inChannel.close();}catch(IOException ex){LOG.log(Level.SEVERE, null, ex);}
-            try{outChannel.close();}catch(IOException ex){LOG.log(Level.SEVERE, null, ex);}
         }
     }
 }
