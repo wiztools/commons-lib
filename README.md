@@ -27,7 +27,7 @@ All classes are from the package:
 	File f = ...;
 	FileUtil.getContentAsString(f, Charsets.UTF_8);
 
-[FileUtil.java](https://bitbucket.org/wiztools/wiztools-commons-lib/src/tip/src/main/java/org/wiztools/commons/FileUtil.java)
+[FileUtil.java](https://github.com/wiztools/commons-lib/blob/master/src/main/java/org/wiztools/commons/FileUtil.java)
 
 ### Non-RE based split()
 
@@ -35,20 +35,20 @@ All classes are from the package:
 	String input = ...;
 	List<String> arr = StringUtil.explode(splitStr, input);
 
-[StringUtil.java](https://bitbucket.org/wiztools/wiztools-commons-lib/src/tip/src/main/java/org/wiztools/commons/StringUtil.java)
+[StringUtil.java](https://github.com/wiztools/commons-lib/blob/master/src/main/java/org/wiztools/commons/StringUtil.java)
 
 ### Encode XML/HTML special characters
 
 	String encoded = XmlEntityEncode.encode(input);
 
-[XmlEntityEncode.java](https://bitbucket.org/wiztools/wiztools-commons-lib/src/tip/src/main/java/org/wiztools/commons/XmlEntityEncode.java)
+[XmlEntityEncode.java](https://github.com/wiztools/commons-lib/blob/master/src/main/java/org/wiztools/commons/XmlEntityEncode.java)
 
 ### Java equivalent of PHP md5() function
 
 	String input = ...;
 	String hash = DigestUtil.md5hex(input.getBytes("UTF-8"));
 
-[DigestUtil.java](https://bitbucket.org/wiztools/wiztools-commons-lib/src/tip/src/main/java/org/wiztools/commons/DigestUtil.java)
+[DigestUtil.java](https://github.com/wiztools/commons-lib/blob/master/src/main/java/org/wiztools/commons/DigestUtil.java)
 
 ### Map data-structure holding multiple values
 
@@ -60,7 +60,7 @@ All classes are from the package:
 	// Returns "value1" and "value2":
 	Collection<String, String> values =  m.get("key1");
 
-[MultiValueMap.java](https://bitbucket.org/wiztools/wiztools-commons-lib/src/tip/src/main/java/org/wiztools/commons/MultiValueMap.java) [MultiValueMapArrayList.java](https://bitbucket.org/wiztools/wiztools-commons-lib/src/tip/src/main/java/org/wiztools/commons/MultiValueMapArrayList.java)
+[MultiValueMap.java](https://github.com/wiztools/commons-lib/blob/master/src/main/java/org/wiztools/commons/MultiValueMap.java) [MultiValueMapArrayList.java](https://github.com/wiztools/commons-lib/blob/master/src/main/java/org/wiztools/commons/MultiValueMapArrayList.java)
 
 ### Service Locator To Load Implementation
 
@@ -72,4 +72,4 @@ All classes are from the package:
 
     MyInterface obj = Implementation.of(MyInterface.class);
 
-[Implementation.java](https://bitbucket.org/wiztools/wiztools-commons-lib/src/tip/src/main/java/org/wiztools/commons/Implementation.java)
+[Implementation.java](https://github.com/wiztools/commons-lib/blob/master/src/main/java/org/wiztools/commons/Implementation.java)
