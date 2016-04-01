@@ -5,15 +5,15 @@
  */
 package org.wiztools.commons;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Enumeration;
 import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
+import java.util.zip.ZipFile;
 
 /**
  *
@@ -27,13 +27,13 @@ public final class ZipUtil {
             throw new IllegalArgumentException(
                     "Output directory does not exist; or, is not a directory.");
         }
-
-        ZipInputStream zis = null;
-        try{
-            zis = new ZipInputStream(
-                    new BufferedInputStream(new FileInputStream(input)));
-            ZipEntry entry;
-            while((entry=zis.getNextEntry())!=null){
+        
+        try(ZipFile zf = new ZipFile(input)) {
+            
+            Enumeration<? extends ZipEntry> entries = zf.entries();
+            
+            while(entries.hasMoreElements()) {
+                ZipEntry entry = entries.nextElement();
                 final String name = entry.getName();
                 if(entry.isDirectory()){
                     File f = new File(outputDir, name);
@@ -42,29 +42,20 @@ public final class ZipUtil {
                                 + f.getAbsolutePath());
                     }
                 }
-                else{ // Entry is file
+                else { // Entry is file
                     File f = new File(outputDir, name);
-                    OutputStream os = null;
-                    try{
-                        os = new BufferedOutputStream(new FileOutputStream(f));
+                    try(
+                            OutputStream os = new BufferedOutputStream(
+                                new FileOutputStream(f));
+                            InputStream zis = zf.getInputStream(entry);
+                            ) {
                         byte[] buf = new byte[1024*8];
-                        int count = -1;
-                        while((count=zis.read(buf))!=-1){
+                        int count;
+                        while((count=zis.read(buf)) != -1){
                             os.write(buf, 0, count);
                         }
                     }
-                    finally{
-                        if(os != null){
-                            os.close();
-                        }
-                    }
                 }
-                zis.closeEntry();
-            }
-        }
-        finally{
-            if(zis != null){
-                zis.close();
             }
         }
     }
