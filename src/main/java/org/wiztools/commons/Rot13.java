@@ -21,7 +21,7 @@ public final class Rot13 {
         final char[] lookup1 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".toCharArray();
         final char[] lookup2 = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm".toCharArray();
 
-        Map<Character, Character> m = new HashMap<Character, Character>();
+        Map<Character, Character> m = new HashMap<>();
         for(int i=0; i<lookup1.length; i++) {
             m.put(lookup1[i], lookup2[i]);
         }

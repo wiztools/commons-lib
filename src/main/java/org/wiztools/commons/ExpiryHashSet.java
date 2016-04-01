@@ -15,7 +15,7 @@ import java.util.Set;
  */
 public class ExpiryHashSet<T> extends AbstractExpiryCollection<T> {
 
-    private final Set<AbstractExpiryCollection.Encp> data = new HashSet<AbstractExpiryCollection.Encp>();
+    private final Set<AbstractExpiryCollection.Encp> data = new HashSet<>();
 
     public ExpiryHashSet(final long cleanerThreadIntervalInMilliSecond){
         super(cleanerThreadIntervalInMilliSecond);

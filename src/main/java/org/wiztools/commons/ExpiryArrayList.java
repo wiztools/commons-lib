@@ -14,7 +14,7 @@ import java.util.List;
  * @author subwiz
  */
 public class ExpiryArrayList<T> extends AbstractExpiryCollection<T> {
-    private final List<AbstractExpiryCollection.Encp> data = new ArrayList<AbstractExpiryCollection.Encp>();
+    private final List<AbstractExpiryCollection.Encp> data = new ArrayList<>();
 
     public ExpiryArrayList(final long cleanerThreadIntervalInMilliSecond) {
         super(cleanerThreadIntervalInMilliSecond);

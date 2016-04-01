@@ -20,6 +20,8 @@ import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Common functions using the java.io.File object.
@@ -95,7 +97,8 @@ public final class FileUtil {
             type = uc.getContentType();
         } catch (Exception e) {
             // Do nothing!
-            e.printStackTrace();
+            Logger.getLogger(FileUtil.class.getName()).log(
+                    Level.WARNING, e.getMessage(), e);
         } finally {
             if (uc != null) {
                 // No method like uc.close() !!
@@ -115,13 +118,8 @@ public final class FileUtil {
             final String content,
             final Charset charset)
                 throws IOException{
-        PrintWriter w = null;
-        try{
-            w = new PrintWriter(f, charset.name());
+        try(PrintWriter w = new PrintWriter(f, charset.name())) {
             w.print(content);
-        }
-        finally{
-            w.close();
         }
     }
 
@@ -134,15 +132,8 @@ public final class FileUtil {
     public static void writeBytes(final File f,
             final byte[] bytes)
                 throws IOException{
-        OutputStream os = null;
-        try{
-            os = new FileOutputStream(f);
+        try(OutputStream os = new FileOutputStream(f)) {
             os.write(bytes, 0, bytes.length);
-        }
-        finally{
-            if(os != null){
-                os.close();
-            }
         }
     }
 
@@ -169,13 +160,10 @@ public final class FileUtil {
                 dest.createNewFile();
             }
 
-            final FileChannel fcSource = new FileInputStream(source).getChannel();
-            final FileChannel fcDest = new FileOutputStream(dest).getChannel();
-
-            fcDest.transferFrom(fcSource, 0, fcSource.size());
-
-            if(fcSource != null) { fcSource.close(); }
-            if(fcDest != null) { fcDest.close(); }
+            try(final FileChannel fcSource = new FileInputStream(source).getChannel();
+            final FileChannel fcDest = new FileOutputStream(dest).getChannel();) {
+                fcDest.transferFrom(fcSource, 0, fcSource.size());
+            }
         }
     }
 }

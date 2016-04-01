@@ -75,13 +75,7 @@ public class Implementation {
             }
             return o;
         }
-        catch(ClassNotFoundException ex){
-            throw new ImplementationLoadException(ex);
-        }
-        catch(InstantiationException ex){
-            throw new ImplementationLoadException(ex);
-        }
-        catch(IllegalAccessException ex){
+        catch(ClassNotFoundException | InstantiationException | IllegalAccessException ex){
             throw new ImplementationLoadException(ex);
         }
     }

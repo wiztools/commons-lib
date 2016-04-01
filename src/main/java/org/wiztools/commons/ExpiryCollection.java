@@ -22,6 +22,7 @@ public interface ExpiryCollection<T> extends Iterable<T> {
 
     boolean isEmpty();
 
+    @Override
     Iterator<T> iterator();
 
     int size();

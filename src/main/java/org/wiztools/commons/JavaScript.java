@@ -11,16 +11,16 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
 /**
- * JavaScript functions in Java. Internally calls Rhino's implementation of the
+ * JavaScript functions in Java. Internally calls Nashorns's implementation of the
  * function calls.
  * @author subhash
  */
 public class JavaScript {
     private JavaScript() {}
 
-    private static final ScriptEngine jsEngine;
+    private static final ScriptEngine JS_ENGINE;
     static {
-        jsEngine = new ScriptEngineManager().getEngineByName("JavaScript");
+        JS_ENGINE = new ScriptEngineManager().getEngineByName("JavaScript");
     }
 
     private static String toUpperCaseEncodedChars(final String inStr) {
@@ -44,62 +44,47 @@ public class JavaScript {
 
     public static String escape(final String str) {
         try{
-            return (String) ((Invocable) jsEngine).invokeFunction("escape", str);
+            return (String) ((Invocable) JS_ENGINE).invokeFunction("escape", str);
         }
-        catch(ScriptException ex) {
-            throw new RuntimeException(ex);
-        }
-        catch(NoSuchMethodException ex) {
+        catch(ScriptException | NoSuchMethodException ex) {
             throw new RuntimeException(ex);
         }
     }
 
     public static String unescape(final String str) {
         try{
-            return (String) ((Invocable) jsEngine).invokeFunction("unescape", str);
+            return (String) ((Invocable) JS_ENGINE).invokeFunction("unescape", str);
         }
-        catch(ScriptException ex) {
-            throw new RuntimeException(ex);
-        }
-        catch(NoSuchMethodException ex) {
+        catch(ScriptException | NoSuchMethodException ex) {
             throw new RuntimeException(ex);
         }
     }
 
     public static String encodeURI(final String str) {
         try{
-            final String out = (String) ((Invocable) jsEngine).invokeFunction("encodeURI", str);
+            final String out = (String) ((Invocable) JS_ENGINE).invokeFunction("encodeURI", str);
             return toUpperCaseEncodedChars(out);
         }
-        catch(ScriptException ex) {
-            throw new RuntimeException(ex);
-        }
-        catch(NoSuchMethodException ex) {
+        catch(ScriptException | NoSuchMethodException ex) {
             throw new RuntimeException(ex);
         }
     }
 
     public static String decodeURI(final String str) {
         try{
-            return (String) ((Invocable) jsEngine).invokeFunction("decodeURI", str);
+            return (String) ((Invocable) JS_ENGINE).invokeFunction("decodeURI", str);
         }
-        catch(ScriptException ex) {
-            throw new RuntimeException(ex);
-        }
-        catch(NoSuchMethodException ex) {
+        catch(ScriptException | NoSuchMethodException ex) {
             throw new RuntimeException(ex);
         }
     }
 
     public static String encodeURIComponent(final String str) {
         try{
-            final String out = (String) ((Invocable) jsEngine).invokeFunction("encodeURIComponent", str);
+            final String out = (String) ((Invocable) JS_ENGINE).invokeFunction("encodeURIComponent", str);
             return toUpperCaseEncodedChars(out);
         }
-        catch(ScriptException ex) {
-            throw new RuntimeException(ex);
-        }
-        catch(NoSuchMethodException ex) {
+        catch(ScriptException | NoSuchMethodException ex) {
             throw new RuntimeException(ex);
         }
     }
@@ -111,12 +96,9 @@ public class JavaScript {
      */
     public static String decodeURIComponent(final String str) {
         try{
-            return (String) ((Invocable) jsEngine).invokeFunction("decodeURIComponent", str);
+            return (String) ((Invocable) JS_ENGINE).invokeFunction("decodeURIComponent", str);
         }
-        catch(ScriptException ex) {
-            throw new RuntimeException(ex);
-        }
-        catch(NoSuchMethodException ex) {
+        catch(ScriptException | NoSuchMethodException ex) {
             throw new RuntimeException(ex);
         }
     }

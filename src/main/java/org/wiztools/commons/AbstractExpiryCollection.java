@@ -134,14 +134,17 @@ public abstract class AbstractExpiryCollection<T> implements ExpiryCollection<T>
     public Iterator<T> iterator() {
         final Iterator<AbstractExpiryCollection.Encp> itr = getData().iterator();
         return new Iterator<T>() {
+            @Override
             public boolean hasNext() {
                 return itr.hasNext();
             }
 
+            @Override
             public T next() {
                 return (T)itr.next().t;
             }
 
+            @Override
             public void remove() {
                 itr.remove();
             }

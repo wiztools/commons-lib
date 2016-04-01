@@ -14,27 +14,21 @@ public class OS {
     
     public static boolean isMac() {
         final String os = System.getProperty("os.name").toLowerCase();
-        if(os.indexOf("mac") != -1) {
-            return true;
-        }
-        return false;
+        return os.contains("mac");
     }
     
     public static boolean isWindows() {
         final String os = System.getProperty("os.name").toLowerCase();
-        if(os.indexOf("windows") != -1) {
-            return true;
-        }
-        return false;
+        return os.contains("windows");
     }
     
     public static boolean isUnix() {
         final String os = System.getProperty("os.name").toLowerCase();
-        return (os.indexOf("nix") >= 0 || os.indexOf("nux") >= 0);
+        return (os.contains("nix") || os.contains("nux"));
     }
     
     public static boolean isSolaris() {
         final String os = System.getProperty("os.name").toLowerCase();
-        return (os.indexOf("sunos") >= 0);
+        return (os.contains("sunos"));
     }
 }

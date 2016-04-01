@@ -17,7 +17,7 @@ import java.util.Map;
 public final class RotN {
     private RotN() {}
 
-    private static final char[] lookup = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+    private static final char[] LOOKUP = "abcdefghijklmnopqrstuvwxyz".toCharArray();
 
     private static interface Emitter {
         void emit(char c1, char c2);
@@ -27,32 +27,26 @@ public final class RotN {
         if(n < 1 || n > 25)
             throw new IllegalArgumentException("Value of N should be between 1 and 26");
 
-        for(int i=0, j=n; i<lookup.length; i++,j++) {
-            if(j == lookup.length)
+        for(int i=0, j=n; i<LOOKUP.length; i++,j++) {
+            if(j == LOOKUP.length)
                 j = 0;
-            emitter.emit(lookup[i], lookup[j]);
+            emitter.emit(LOOKUP[i], LOOKUP[j]);
         }
     }
 
     private static Map<Character, Character> getCipherMap(final int n) {
-        final Map<Character, Character> out = new HashMap<Character, Character>();
-        Emitter emitter = new Emitter() {
-            @Override
-            public void emit(char c1, char c2) {
-                out.put(c1, c2);
-            }
+        final Map<Character, Character> out = new HashMap<>();
+        Emitter emitter = (char c1, char c2) -> {
+            out.put(c1, c2);
         };
         map(n, emitter);
         return out;
     }
 
     private static Map<Character, Character> getDeCipherMap(final int n) {
-        final Map<Character, Character> out = new HashMap<Character, Character>();
-        Emitter emitter = new Emitter() {
-            @Override
-            public void emit(char c1, char c2) {
-                out.put(c2, c1);
-            }
+        final Map<Character, Character> out = new HashMap<>();
+        Emitter emitter = (char c1, char c2) -> {
+            out.put(c2, c1);
         };
         map(n, emitter);
         return out;

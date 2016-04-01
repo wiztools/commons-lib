@@ -20,63 +20,64 @@ import java.util.Set;
  */
 public class MultiValueMapArrayList<K, V> implements MultiValueMap<K, V>{
 
-    private Map<K, List<V>> map = new LinkedHashMap<K, List<V>>();
+    private final Map<K, List<V>> map = new LinkedHashMap<>();
 
+    @Override
     public Collection<V> put(K key, V value){
         List<V> l = map.get(key);
         if(l == null){
-            l = new ArrayList<V>();
+            l = new ArrayList<>();
         }
         l.add(value);
         return map.put(key, l);
     }
 
+    @Override
     public Collection<V> get(K key){
         return map.get(key);
     }
 
+    @Override
     public Set<K> keySet(){
         return map.keySet();
     }
 
+    @Override
     public int size() {
         return map.size();
     }
 
+    @Override
     public boolean isEmpty() {
-        if(size() == 0)
-            return true;
-        return false;
+        return size() == 0;
     }
 
+    @Override
     public boolean containsKey(K key) {
         return map.containsKey(key);
     }
 
+    @Override
     public boolean containsValue(V value) {
-        for(K key: map.keySet()){
-            List<V> values = map.get(key);
-            if(values.contains(value)){
-                return true;
-            }
-        }
-        return false;
+        return map.keySet().stream().map((key) -> map.get(key)).anyMatch((values) -> (values.contains(value)));
     }
 
+    @Override
     public Collection<V> remove(K key) {
         return map.remove(key);
     }
 
+    @Override
     public void clear() {
         map.clear();
     }
 
+    @Override
     public Collection<V> values() {
-        List<V> values = new ArrayList<V>();
-        for(K key: map.keySet()){
-            List<V> v = map.get(key);
+        List<V> values = new ArrayList<>();
+        map.keySet().stream().map((key) -> map.get(key)).forEach((v) -> {
             values.addAll(v);
-        }
+        });
         return values;
     }
 
