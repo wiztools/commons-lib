@@ -6,6 +6,14 @@ This is developed and maintained by [Subhash Chandran](http://www.wiztools.org/s
 
 ## Dependency
 
+Gradle:
+
+```groovy
+compile 'org.wiztools:commons-lib:0.4.2'
+```
+
+Maven:
+
 ```xml
 <dependency>
     <groupId>org.wiztools</groupId>
