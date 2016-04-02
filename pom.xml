@@ -27,7 +27,7 @@
     <scm>
         <connection>scm:git:https://github.com/wiztools/commons-lib.git</connection>
         <developerConnection>scm:git:git@github.com:wiztools/commons-lib.git</developerConnection>
-        <url>https://bitbucket.org/wiztools/wiztools-commons-lib</url>
+        <url>https://github.com/wiztools/commons-lib</url>
       <tag>HEAD</tag>
   </scm>
     
