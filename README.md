@@ -8,9 +8,9 @@ This is developed and maintained by [Subhash Chandran](http://www.wiztools.org/s
 
 ```xml
 <dependency>
-    <groupId>org.wiztools.commons</groupId>
-    <artifactId>wiztools-commons-lib</artifactId>
-    <version>0.3.0</version>
+    <groupId>org.wiztools</groupId>
+    <artifactId>commons-lib</artifactId>
+    <version>0.4.2</version>
 </dependency>
 ```
 
